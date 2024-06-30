@@ -4,6 +4,7 @@ class MediaPonderadaScreen extends StatefulWidget {
   const MediaPonderadaScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _MediaPonderadaScreenState createState() => _MediaPonderadaScreenState();
 }
 
@@ -28,36 +29,15 @@ class _MediaPonderadaScreenState extends State<MediaPonderadaScreen> {
   }
 
   void addNota() {
-    if (count < 4) {
-      setState(() {
-        var newNotaController = TextEditingController();
-        var newPesoController = TextEditingController();
-        newNotaController.addListener(_validateFields);
-        newPesoController.addListener(_validateFields);
-        notaControllers.add(newNotaController);
-        pesoControllers.add(newPesoController);
-        count++;
-      });
-    } else {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return const AlertDialog(
-            contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-            content: Text(
-              'O limite máximo é de 4 campos.',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Color(0xFFFF3B3F),
-                fontFamily: 'Ubuntu',
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          );
-        },
-      );
-    }
+    setState(() {
+      var newNotaController = TextEditingController();
+      var newPesoController = TextEditingController();
+      newNotaController.addListener(_validateFields);
+      newPesoController.addListener(_validateFields);
+      notaControllers.add(newNotaController);
+      pesoControllers.add(newPesoController);
+      count++;
+    });
   }
 
   void removeNota() {

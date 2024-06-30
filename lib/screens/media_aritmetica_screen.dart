@@ -4,6 +4,7 @@ class MediaAritmeticaScreen extends StatefulWidget {
   const MediaAritmeticaScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _MediaAritmeticaScreenState createState() => _MediaAritmeticaScreenState();
 }
 
@@ -25,34 +26,13 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
     }
   }
 
-  void addNota() {
-    if (count < 4) {
-      setState(() {
-        var newController = TextEditingController();
-        newController.addListener(_validateFields);
-        notaControllers.add(newController);
-        count++;
-      });
-    } else {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return const AlertDialog(
-            contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-            content: Text(
-              'O limite máximo é de 4 campos.',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Color(0xFFFF3B3F),
-                fontFamily: 'Ubuntu',
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          );
-        },
-      );
-    }
+  void addNota() {   
+    setState(() {
+      var newController = TextEditingController();
+      newController.addListener(_validateFields);
+      notaControllers.add(newController);
+      count++;
+    });
   }
 
   void removeNota() {
