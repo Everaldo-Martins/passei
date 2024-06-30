@@ -4,7 +4,6 @@ class MediaAritmeticaScreen extends StatefulWidget {
   const MediaAritmeticaScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _MediaAritmeticaScreenState createState() => _MediaAritmeticaScreenState();
 }
 
@@ -45,7 +44,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Color(0xFFFF3B3F),
-                 fontFamily: 'Ubuntu',
+                fontFamily: 'Ubuntu',
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
               ),
@@ -54,6 +53,26 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
         },
       );
     }
+  }
+
+  void removeNota() {
+    if (count > 2) {
+      setState(() {
+        notaControllers.removeLast();
+        count--;
+      });
+    }
+  }
+
+  void clearFields() {
+    for (var controller in notaControllers) {
+      controller.clear();
+    }
+    setState(() {
+      mediaResult = '';
+      needed = 0;
+    });
+    isButtonEnabled.value = false;
   }
 
   void calculateMedia() {
@@ -65,7 +84,6 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
     double sum = 0;
     int count = notaControllers.length;
 
-    // Calculando a soma das notas
     for (var controller in notaControllers) {
       sum += parseBrazilianDouble(controller.text);
     }
@@ -92,7 +110,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: const Color(0xFFF9F9F9),          
+          backgroundColor: const Color(0xFFF9F9F9),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
@@ -256,23 +274,39 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFFF3B3F),
                   foregroundColor: const Color(0xFFF9F9F9),
-                  padding: const EdgeInsets.only(
-                    top: 12,
-                    right: 20,
-                    bottom: 12,
-                    left: 20,
-                  ),
-                  textStyle: const TextStyle(
-                    fontFamily: 'Ubuntu',
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                 ),
                 child: const Row(
                   children: [
-                    Icon(Icons.control_point_rounded),
-                    SizedBox(width: 10),
-                    Text('Campo'),
+                    Icon(Icons.add)
+                  ],
+                ),
+              ),
+              const SizedBox(width: 16),
+              ElevatedButton(
+                onPressed: removeNota,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFFFF3B3F),
+                  foregroundColor: const Color(0xFFF9F9F9),
+                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                ),
+                child: const Row(
+                  children: [
+                    Icon(Icons.remove)
+                  ],
+                ),
+              ),
+              const SizedBox(width: 16),
+              ElevatedButton(
+                onPressed: clearFields,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFFFF3B3F),
+                  foregroundColor: const Color(0xFFF9F9F9),
+                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                ),
+                child: const Row(
+                  children: [
+                    Icon(Icons.clear)
                   ],
                 ),
               ),
@@ -287,28 +321,16 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
                       foregroundColor: const Color(0xFFF9F9F9),
                       disabledBackgroundColor: const Color(0x99FF3B3F),
                       disabledForegroundColor: const Color(0x66F9F9F9),
-                      padding: const EdgeInsets.only(
-                        top: 12,
-                        right: 20,
-                        bottom: 12,
-                        left: 20,
-                      ),
-                      textStyle: const TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
                     ),
                     child: const Row(
                       children: [
-                        Icon(Icons.check_circle_outline_rounded),
-                        SizedBox(width: 10),
-                        Text('Calcular'),
+                        Icon(Icons.check)
                       ],
                     ),
                   );
                 },
-              ),
+              ),              
             ],
           ),
         ],

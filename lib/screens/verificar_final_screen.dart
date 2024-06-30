@@ -125,6 +125,16 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
     );
   }
 
+  void clearFields() {
+    mediaController.clear();
+    provaFinalController.clear();
+    setState(() {
+      finalResult = '';
+      mediaResult = '';
+    });
+    isButtonEnabled.value = false;
+  }
+
   void _validateFields() {
     bool isValid =
         mediaController.text.isNotEmpty && provaFinalController.text.isNotEmpty;
@@ -209,6 +219,21 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              ElevatedButton(
+                onPressed: clearFields,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFFFF3B3F),
+                  foregroundColor: const Color(0xFFF9F9F9),
+                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.clear)
+                  ],
+                ),
+              ),
+              const SizedBox(width: 16),
               ValueListenableBuilder<bool>(
                 valueListenable: isButtonEnabled,
                 builder: (context, value, child) {
@@ -219,24 +244,12 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
                       foregroundColor: const Color(0xFFF9F9F9),
                       disabledBackgroundColor: const Color(0x99FF3B3F),
                       disabledForegroundColor: const Color(0x66F9F9F9),
-                      padding: const EdgeInsets.only(
-                        top: 12,
-                        right: 20,
-                        bottom: 12,
-                        left: 20,
-                      ),
-                      textStyle: const TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
                     ),
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.check_circle_outline_rounded),
-                        SizedBox(width: 10),
-                        Text('Verificar'),
+                        Icon(Icons.check)
                       ],
                     ),
                   );

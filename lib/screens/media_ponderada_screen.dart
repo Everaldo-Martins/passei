@@ -4,7 +4,6 @@ class MediaPonderadaScreen extends StatefulWidget {
   const MediaPonderadaScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _MediaPonderadaScreenState createState() => _MediaPonderadaScreenState();
 }
 
@@ -59,6 +58,29 @@ class _MediaPonderadaScreenState extends State<MediaPonderadaScreen> {
         },
       );
     }
+  }
+
+  void removeNota() {
+    if (count > 2) {
+      setState(() {
+        notaControllers.removeLast();
+        pesoControllers.removeLast();
+        count--;
+      });
+    }
+  }
+
+  void clearFields() {
+    for (var controller in notaControllers) {
+      controller.clear();
+    }
+    for (var controller in pesoControllers) {
+      controller.clear();
+    }
+    setState(() {
+      mediaResult = '';
+    });
+    isButtonEnabled.value = false;
   }
 
   void calculateMediaPonderada() {
@@ -308,23 +330,39 @@ class _MediaPonderadaScreenState extends State<MediaPonderadaScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFFF3B3F),
                   foregroundColor: const Color(0xFFF9F9F9),
-                  padding: const EdgeInsets.only(
-                    top: 12,
-                    right: 20,
-                    bottom: 12,
-                    left: 20,
-                  ),
-                  textStyle: const TextStyle(
-                    fontFamily: 'Ubuntu',
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                 ),
                 child: const Row(
                   children: [
-                    Icon(Icons.control_point_rounded),
-                    SizedBox(width: 10),
-                    Text('Campo'),
+                    Icon(Icons.add)
+                  ],
+                ),
+              ),
+              const SizedBox(width: 16),
+              ElevatedButton(
+                onPressed: removeNota,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFFFF3B3F),
+                  foregroundColor: const Color(0xFFF9F9F9),
+                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                ),
+                child: const Row(
+                  children: [
+                    Icon(Icons.remove)
+                  ],
+                ),
+              ),
+              const SizedBox(width: 16),
+              ElevatedButton(
+                onPressed: clearFields,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFFFF3B3F),
+                  foregroundColor: const Color(0xFFF9F9F9),
+                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                ),
+                child: const Row(
+                  children: [
+                    Icon(Icons.clear)
                   ],
                 ),
               ),
@@ -339,28 +377,16 @@ class _MediaPonderadaScreenState extends State<MediaPonderadaScreen> {
                       foregroundColor: const Color(0xFFF9F9F9),
                       disabledBackgroundColor: const Color(0x99FF3B3F),
                       disabledForegroundColor: const Color(0x66F9F9F9),
-                      padding: const EdgeInsets.only(
-                        top: 12,
-                        right: 20,
-                        bottom: 12,
-                        left: 20,
-                      ),
-                      textStyle: const TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),                      
                     ),
                     child: const Row(
                       children: [
-                        Icon(Icons.check_circle_outline_rounded),
-                        SizedBox(width: 10),
-                        Text('Calcular'),
+                        Icon(Icons.check)
                       ],
                     ),
                   );
                 },
-              ),
+              ),              
             ],
           ),
         ],
