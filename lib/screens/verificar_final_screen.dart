@@ -215,7 +215,7 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
               ],
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -224,16 +224,31 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFFF3B3F),
                   foregroundColor: const Color(0xFFF9F9F9),
-                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                  elevation: 6,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 12,
+                  ),
                 ),
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: const Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(Icons.clear)
+                    Icon(
+                      Icons.clear_all,
+                      size: 26,
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                      'Limpar',
+                      style: TextStyle(
+                          fontFamily: 'Ubuntu',
+                          fontSize: 10,
+                          fontWeight: FontWeight.normal),
+                    ),
                   ],
                 ),
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: 10),
               ValueListenableBuilder<bool>(
                 valueListenable: isButtonEnabled,
                 builder: (context, value, child) {
@@ -244,12 +259,27 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
                       foregroundColor: const Color(0xFFF9F9F9),
                       disabledBackgroundColor: const Color(0x99FF3B3F),
                       disabledForegroundColor: const Color(0x66F9F9F9),
-                      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+                      elevation: 6,
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 12,
+                      ),
                     ),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    child: const Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.check)
+                        Icon(
+                          Icons.check,
+                          size: 26,
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          'Enviar',
+                          style: TextStyle(
+                              fontFamily: 'Ubuntu',
+                              fontSize: 10,
+                              fontWeight: FontWeight.normal),
+                        ),
                       ],
                     ),
                   );

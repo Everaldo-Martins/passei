@@ -269,48 +269,100 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(
-                onPressed: addNota,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFF3B3F),
-                  foregroundColor: const Color(0xFFF9F9F9),
-                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              if (count < 4) ...[
+                ElevatedButton(
+                  onPressed: addNota,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFFFF3B3F),
+                    foregroundColor: const Color(0xFFF9F9F9),
+                    elevation: 6,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 12,
+                    ),
+                  ),
+                  child: const Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.add,
+                        size: 26,
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        'Add',
+                        style: TextStyle(
+                            fontFamily: 'Ubuntu',
+                            fontSize: 10,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ],
+                  ),
                 ),
-                child: const Row(
-                  children: [
-                    Icon(Icons.add)
-                  ],
+              ],
+              if (count > 2) ...[
+                const SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: removeNota,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFFFF3B3F),
+                    foregroundColor: const Color(0xFFF9F9F9),
+                    elevation: 6,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 12,
+                    ),
+                  ),
+                  child: const Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.remove,
+                        size: 26,
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        'Remover',
+                        style: TextStyle(
+                            fontFamily: 'Ubuntu',
+                            fontSize: 10,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(width: 16),
-              ElevatedButton(
-                onPressed: removeNota,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFF3B3F),
-                  foregroundColor: const Color(0xFFF9F9F9),
-                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                ),
-                child: const Row(
-                  children: [
-                    Icon(Icons.remove)
-                  ],
-                ),
-              ),
-              const SizedBox(width: 16),
+              ],
+              const SizedBox(width: 10),
               ElevatedButton(
                 onPressed: clearFields,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFFF3B3F),
                   foregroundColor: const Color(0xFFF9F9F9),
-                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                  elevation: 6,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 12,
+                  ),
                 ),
-                child: const Row(
+                child: const Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(Icons.clear)
+                    Icon(
+                      Icons.clear_all,
+                      size: 26,
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                      'Limpar',
+                      style: TextStyle(
+                          fontFamily: 'Ubuntu',
+                          fontSize: 10,
+                          fontWeight: FontWeight.normal),
+                    ),
                   ],
                 ),
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: 10),
               ValueListenableBuilder<bool>(
                 valueListenable: isButtonEnabled,
                 builder: (context, value, child) {
@@ -321,16 +373,32 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
                       foregroundColor: const Color(0xFFF9F9F9),
                       disabledBackgroundColor: const Color(0x99FF3B3F),
                       disabledForegroundColor: const Color(0x66F9F9F9),
-                      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                      elevation: 6,
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 12,
+                      ),
                     ),
-                    child: const Row(
+                    child: const Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.check)
+                        Icon(
+                          Icons.check,
+                          size: 26,
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          'Enviar',
+                          style: TextStyle(
+                              fontFamily: 'Ubuntu',
+                              fontSize: 10,
+                              fontWeight: FontWeight.normal),
+                        ),
                       ],
                     ),
                   );
                 },
-              ),              
+              ),
             ],
           ),
         ],
