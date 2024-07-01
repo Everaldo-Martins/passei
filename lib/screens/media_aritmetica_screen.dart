@@ -26,7 +26,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
     }
   }
 
-  void addNota() {   
+  void addNota() {
     setState(() {
       var newController = TextEditingController();
       newController.addListener(_validateFields);
@@ -90,7 +90,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: const Color(0xFFF9F9F9),
+          backgroundColor: const Color(0xFFFFF6F4),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
@@ -139,7 +139,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
                             fontFamily: 'Ubuntu',
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
-                            color: Color(0xFF686868),
+                            color: Color(0xFF798897),
                           ),
                         ),
                         const SizedBox(height: 16),
@@ -150,7 +150,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
                             fontFamily: 'Ubuntu',
                             fontSize: 46,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF686868),
+                            color: Color(0xFF798897),
                           ),
                         ),
                         if (needed > 0) ...[
@@ -162,7 +162,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
                               fontFamily: 'Ubuntu',
                               fontSize: 16,
                               fontWeight: FontWeight.normal,
-                              color: Color(0xFF686868),
+                              color: Color(0xFF798897),
                             ),
                           ),
                           const SizedBox(height: 16),
@@ -173,7 +173,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
                               fontFamily: 'Ubuntu',
                               fontSize: 46,
                               fontWeight: FontWeight.bold,
-                              color: Color(0xFF686868),
+                              color: Color(0xFF798897),
                             ),
                           ),
                         ],
@@ -223,7 +223,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
                       labelText: 'Insira a ${index + 1}ª nota',
                       labelStyle: const TextStyle(
                         fontFamily: 'Ubuntu',
-                        color: Color(0xFF686868),
+                        color: Color(0xFF798897),
                       ),
                       floatingLabelStyle: const TextStyle(
                         fontFamily: 'Ubuntu',
@@ -254,7 +254,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
                   onPressed: addNota,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFFF3B3F),
-                    foregroundColor: const Color(0xFFF9F9F9),
+                    foregroundColor: const Color(0xFFFFF6F4),
                     elevation: 6,
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
@@ -286,7 +286,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
                   onPressed: removeNota,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFFF3B3F),
-                    foregroundColor: const Color(0xFFF9F9F9),
+                    foregroundColor: const Color(0xFFFFF6F4),
                     elevation: 6,
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
@@ -317,7 +317,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
                 onPressed: clearFields,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFFF3B3F),
-                  foregroundColor: const Color(0xFFF9F9F9),
+                  foregroundColor: const Color(0xFFFFF6F4),
                   elevation: 6,
                   padding: const EdgeInsets.symmetric(
                     vertical: 10,
@@ -350,9 +350,9 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
                     onPressed: value ? calculateMedia : null,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFFF3B3F),
-                      foregroundColor: const Color(0xFFF9F9F9),
+                      foregroundColor: const Color(0xFFFFF6F4),
                       disabledBackgroundColor: const Color(0x99FF3B3F),
-                      disabledForegroundColor: const Color(0x66F9F9F9),
+                      disabledForegroundColor: const Color(0x66FFF6F4),
                       elevation: 6,
                       padding: const EdgeInsets.symmetric(
                         vertical: 10,

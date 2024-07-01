@@ -50,7 +50,7 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: const Color(0xFFF9F9F9),
+          backgroundColor: const Color(0xFFFFF6F4),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
@@ -99,7 +99,7 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
                             fontFamily: 'Ubuntu',
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
-                            color: Color(0xFF686868),
+                            color: Color(0xFF798897),
                           ),
                         ),
                         const SizedBox(height: 16),
@@ -110,7 +110,7 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
                             fontFamily: 'Ubuntu',
                             fontSize: 46,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF686868),
+                            color: Color(0xFF798897),
                           ),
                         ),
                       ],
@@ -166,7 +166,7 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
                     labelText: 'Média',
                     labelStyle: TextStyle(
                       fontFamily: 'Ubuntu',
-                      color: Color(0xFF686868),
+                      color: Color(0xFF798897),
                     ),
                     floatingLabelStyle: TextStyle(
                       fontFamily: 'Ubuntu',
@@ -193,7 +193,7 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
                     labelText: 'Prova Final',
                     labelStyle: TextStyle(
                       fontFamily: 'Ubuntu',
-                      color: Color(0xFF686868),
+                      color: Color(0xFF798897),
                     ),
                     floatingLabelStyle: TextStyle(
                       fontFamily: 'Ubuntu',
@@ -223,7 +223,7 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
                 onPressed: clearFields,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFFF3B3F),
-                  foregroundColor: const Color(0xFFF9F9F9),
+                  foregroundColor: const Color(0xFFFFF6F4),
                   elevation: 6,
                   padding: const EdgeInsets.symmetric(
                     vertical: 10,
@@ -256,9 +256,9 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
                     onPressed: value ? verifyFinal : null,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFFF3B3F),
-                      foregroundColor: const Color(0xFFF9F9F9),
+                      foregroundColor: const Color(0xFFFFF6F4),
                       disabledBackgroundColor: const Color(0x99FF3B3F),
-                      disabledForegroundColor: const Color(0x66F9F9F9),
+                      disabledForegroundColor: const Color(0x66FFF6F4),
                       elevation: 6,
                       padding: const EdgeInsets.symmetric(
                         vertical: 10,

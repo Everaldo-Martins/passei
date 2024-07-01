@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage>
   void initState() {
     super.initState();
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    _tabController = TabController(length: 3, vsync: this);    
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFFFF3B3F),
-        foregroundColor: const Color(0xFFF9F9F9),
+        foregroundColor: const Color(0xFFFFF6F4),
         centerTitle: true,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -48,9 +48,9 @@ class _HomePageState extends State<HomePage>
         ),
         bottom: TabBar(
           controller: _tabController,
-          indicatorColor: const Color(0xF9F9F9FF),
-          unselectedLabelColor: const Color(0x99F9F9F9),
-          labelColor: const Color(0xFFF9F9F9),
+          indicatorColor: const Color(0xFFFFF6F4),
+          unselectedLabelColor: const Color(0x99FFF6F4),
+          labelColor: const Color(0xFFFFF6F4),
           indicatorWeight: 1,
           tabs: const [
             Tab(
