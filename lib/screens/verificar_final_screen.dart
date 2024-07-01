@@ -24,13 +24,13 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
   }
 
   void verifyFinal() {
-    double parseBrazilianDouble(String value) {
+    double parseLocalDouble(String value) {
       value = value.replaceAll(',', '.');
       return double.tryParse(value.replaceAll(RegExp(r'[^\d\.]'), '')) ?? 0;
     }
 
-    double media = parseBrazilianDouble(mediaController.text);
-    double provaFinal = parseBrazilianDouble(provaFinalController.text);
+    double media = parseLocalDouble(mediaController.text);
+    double provaFinal = parseLocalDouble(provaFinalController.text);
 
     double finalMedia = ((media * 6) + (provaFinal * 4)) / 10;
 

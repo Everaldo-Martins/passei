@@ -64,7 +64,7 @@ class _MediaPonderadaScreenState extends State<MediaPonderadaScreen> {
   }
 
   void calculateMediaPonderada() {
-    double parseBrazilianDouble(String value) {
+    double parseLocalDouble(String value) {
       value = value.replaceAll(',', '.');
       return double.tryParse(value.replaceAll(RegExp(r'[^\d\.]'), '')) ?? 0;
     }
@@ -76,8 +76,8 @@ class _MediaPonderadaScreenState extends State<MediaPonderadaScreen> {
     late Color cor;
 
     for (int i = 0; i < count; i++) {
-      double nota = parseBrazilianDouble(notaControllers[i].text);
-      double peso = parseBrazilianDouble(pesoControllers[i].text);
+      double nota = parseLocalDouble(notaControllers[i].text);
+      double peso = parseLocalDouble(pesoControllers[i].text);
 
       sum += nota * peso;
       weightSum += peso;

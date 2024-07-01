@@ -56,7 +56,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
   }
 
   void calculateMedia() {
-    double parseBrazilianDouble(String value) {
+    double parseLocalDouble(String value) {
       value = value.replaceAll(',', '.');
       return double.tryParse(value.replaceAll(RegExp(r'[^\d\.]'), '')) ?? 0;
     }
@@ -65,7 +65,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
     int count = notaControllers.length;
 
     for (var controller in notaControllers) {
-      sum += parseBrazilianDouble(controller.text);
+      sum += parseLocalDouble(controller.text);
     }
 
     double media = sum / count;
