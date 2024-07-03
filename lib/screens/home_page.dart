@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'about.dart';
 import 'media_aritmetica_screen.dart';
 import 'media_ponderada_screen.dart';
 import 'verificar_final_screen.dart';
@@ -35,21 +36,36 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFFFF3B3F),
-        foregroundColor: const Color(0xFFFFF6F4),
+        foregroundColor: const Color(0xFF798897),
         centerTitle: true,
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SvgPicture.asset(
               'assets/icon.svg',
               height: 32,
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const About(),
+                  ),
+                );
+              },
+              icon: const Icon(
+                Icons.help_center_rounded,
+                size: 28,
+              ),
+              color: const Color(0xFFFFF6F4),
             ),
           ],
         ),
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: const Color(0xFFFFF6F4),
-          unselectedLabelColor: const Color(0x99FFF6F4),
+          unselectedLabelColor: const Color(0xAAFFF6F4),
           labelColor: const Color(0xFFFFF6F4),
           indicatorWeight: 1,
           tabs: const [
