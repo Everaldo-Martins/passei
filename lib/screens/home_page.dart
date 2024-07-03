@@ -55,8 +55,8 @@ class _HomePageState extends State<HomePage>
                 );
               },
               icon: const Icon(
-                Icons.help_center_rounded,
-                size: 28,
+                Icons.help,
+                size: 32,
               ),
               color: const Color(0xFFFFF6F4),
             ),
@@ -71,8 +71,8 @@ class _HomePageState extends State<HomePage>
           tabs: const [
             Tab(
               icon: Icon(
-                Icons.calculate_rounded,
-                size: 28,
+                Icons.calculate,
+                size: 32,
               ),
               child: Text(
                 'Aritmética',
@@ -85,8 +85,8 @@ class _HomePageState extends State<HomePage>
             ),
             Tab(
               icon: Icon(
-                Icons.calculate_rounded,
-                size: 28,
+                Icons.calculate,
+                size: 32,
               ),
               child: Text(
                 'Ponderada',
@@ -99,8 +99,8 @@ class _HomePageState extends State<HomePage>
             ),
             Tab(
               icon: Icon(
-                Icons.event_note_rounded,
-                size: 28,
+                Icons.event_note,
+                size: 32,
               ),
               child: Text(
                 'Final',

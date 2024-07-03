@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatelessWidget {
   const About({
     super.key,
   });
 
-  void linkedin() {}
+  Future<void> openUrl(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(uri)) {
+      throw Exception('Could not launch $uri');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +35,50 @@ class About extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 15),
             child: Column(
               children: [
-                const Text(
-                  'Instruções de uso',
-                  style: TextStyle(
-                    fontFamily: 'Ubuntu',
-                    fontSize: 22,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFF798897),
-                  ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Sobre esse aplicativo',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Color(0xFF798897),
+                          fontFamily: 'Ubuntu',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 26),
+                const Row(
+                  children: [                    
+                    Flexible(
+                      child: Text(
+                        'Bem-vindo ao aplicativo Passei! Esta aplicação, desenvolvida em Flutter, foi projetada para ajudar estudantes a calcular rapidamente suas médias, seja aritmética, ponderada ou final. O aplicativo também informa se o aluno foi aprovado ou reprovado com base em suas notas.',
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(
+                          fontFamily: 'Ubuntu',
+                          fontSize: 14,
+                          color: Color(0xFF798897),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 26),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Guia de Uso',
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFF798897),
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 16,
@@ -56,7 +98,7 @@ class About extends StatelessWidget {
                         textAlign: TextAlign.justify,
                         style: TextStyle(
                           fontFamily: 'Ubuntu',
-                          fontSize: 13,
+                          fontSize: 14,
                           color: Color(0xFF798897),
                         ),
                       ),
@@ -81,7 +123,7 @@ class About extends StatelessWidget {
                         textAlign: TextAlign.justify,
                         style: TextStyle(
                           fontFamily: 'Ubuntu',
-                          fontSize: 13,
+                          fontSize: 14,
                           color: Color(0xFF798897),
                         ),
                       ),
@@ -106,7 +148,7 @@ class About extends StatelessWidget {
                         textAlign: TextAlign.justify,
                         style: TextStyle(
                           fontFamily: 'Ubuntu',
-                          fontSize: 13,
+                          fontSize: 14,
                           color: Color(0xFF798897),
                         ),
                       ),
@@ -131,57 +173,70 @@ class About extends StatelessWidget {
                         textAlign: TextAlign.justify,
                         style: TextStyle(
                           fontFamily: 'Ubuntu',
-                          fontSize: 13,
+                          fontSize: 14,
                           color: Color(0xFF798897),
                         ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 16,
+                const SizedBox(height: 26),                
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Conecte-se comigo nas redes sociais',
+                      style: TextStyle(
+                          color: Color(0xFF798897),
+                          fontFamily: 'Ubuntu',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ],
                 ),
+                const SizedBox(height: 16),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(
-                      onPressed: linkedin,
-                      icon: const Icon(
-                        Icons.add_comment_sharp,
-                        size: 36,
-                        color: Color(0xFFFF3B3F),
+                      onPressed: () => openUrl(
+                          'https://www.linkedin.com/in/everaldo-martins-de-oliveira-214400b3'),
+                      icon: Image.asset(
+                        'assets/icons/linkedin.png',
+                        width: 40,
                       ),
                     ),
                     const SizedBox(
                       width: 16,
                     ),
                     IconButton(
-                      onPressed: linkedin,
-                      icon: const Icon(
-                        Icons.add_comment_sharp,
-                        size: 36,
-                        color: Color(0xFFFF3B3F),
+                      onPressed: () => openUrl(
+                          'https://www.instagram.com/everaldo_martins1'),
+                      icon: Image.asset(
+                        'assets/icons/instagram.png',
+                        width: 40,
                       ),
                     ),
                     const SizedBox(
                       width: 16,
                     ),
                     IconButton(
-                      onPressed: linkedin,
-                      icon: const Icon(
-                        Icons.add_comment_sharp,
-                        size: 36,
-                        color: Color(0xFFFF3B3F),
+                      onPressed: () =>
+                          openUrl('https://github.com/Everaldo-Martins'),
+                      icon: Image.asset(
+                        'assets/icons/github.png',
+                        width: 40,
                       ),
                     ),
                     const SizedBox(
                       width: 16,
                     ),
                     IconButton(
-                      onPressed: linkedin,
-                      icon: const Icon(
-                        Icons.add_comment_sharp,
-                        size: 36,
-                        color: Color(0xFFFF3B3F),
+                      onPressed: () =>
+                          openUrl('mailto:everaldoinfortecnico@gmail.com'),
+                      icon: Image.asset(
+                        'assets/icons/gmail.png',
+                        width: 40,
                       ),
                     ),
                   ],
