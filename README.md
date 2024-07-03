@@ -40,6 +40,11 @@ Bem-vindo (a) ao aplicativo **Passei**! Esta aplicação, desenvolvida em Flutte
 ![Modal de Resultado](screenshots/modal_resultado.png)
 ---
 
+### Ajuda
+
+![ajuda](screenshots/ajuda.png)
+---
+
 ## ✨ Benefícios
 
 - **Simples e Eficaz**: Calcule suas médias rapidamente sem complicações.
