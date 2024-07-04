@@ -57,9 +57,10 @@ A estrutura principal do projeto é composta pelos seguintes arquivos:
 
 - `main.dart`: Ponto de entrada do aplicativo.
 - `home_page.dart`: Tela principal que concentra as demais.
-- `media_aritmetica_screen.dart`: Tela onde os cálculo de média aritmética são feitos.
-- `media_ponderada_screen.dart`: Tela onde os cálculo de média ponderada são feitos.
-- `verificar_final_screen.dart`: Tela onde os cálculo de prova final é feito.
+- `about_page.dart`: Tela onde ficam as informações sobre o aplicativo, ajuda de uso e redes sociais do dev.
+- `arithmetic_average_screen.dart`: Tela onde os cálculo de média aritmética são feitos.
+- `weighted_average_screen.dart`: Tela onde os cálculo de média ponderada são feitos.
+- `check_final_screen.dart`: Tela onde os cálculo de prova final é feito.
 - `assets/`: Diretório para imagens e outros recursos.
 - `pubspec.yaml`: Arquivo de configuração do Flutter, onde as dependências são listadas.
 

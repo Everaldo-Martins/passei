@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'about.dart';
-import 'media_aritmetica_screen.dart';
-import 'media_ponderada_screen.dart';
-import 'verificar_final_screen.dart';
+import 'about_page.dart';
+import 'arithmetic_average_screen.dart';
+import 'weighted_average_screen.dart';
+import 'check_final_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required String title});
