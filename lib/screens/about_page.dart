@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatelessWidget {
@@ -17,17 +18,19 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Passei',
-          style: TextStyle(
-            color: Color(0xFFFFF6F4),
-            fontFamily: 'Ubuntu',
-            fontSize: 30,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
         backgroundColor: const Color(0xFFFF3B3F),
-        iconTheme: const IconThemeData(color: Color(0xFFFFF6F4)),
+        foregroundColor: const Color(0xFFFFF6F4),
+        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            SvgPicture.asset(
+              'assets/icon.svg',
+              height: 32,
+            ),
+          ],
+        ),
       ),
       body: Column(
         children: [
@@ -35,8 +38,8 @@ class About extends StatelessWidget {
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 25,
-                  horizontal: 20,
+                  vertical: 24,
+                  horizontal: 16,
                 ),
                 child: Column(
                   children: [
@@ -55,7 +58,9 @@ class About extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 26),
+                    const SizedBox(height: 16),
+                    const Divider(color: Color(0x55798897)),
+                    const SizedBox(height: 16),
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -63,14 +68,14 @@ class About extends StatelessWidget {
                           'Guia de uso',
                           style: TextStyle(
                             fontFamily: 'Ubuntu',
-                            fontSize: 18,
+                            fontSize: 16,
                             fontWeight: FontWeight.w500,
                             color: Color(0xFF798897),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 26),
+                    const SizedBox(height: 16),
                     Row(
                       children: [
                         Image.asset(
@@ -154,57 +159,66 @@ class About extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 26),
+                    const SizedBox(height: 16),
+                    const Divider(color: Color(0x55798897)),
+                    const SizedBox(height: 16),
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
                           'Conecte-se comigo nas redes sociais',
                           style: TextStyle(
-                              color: Color(0xFF798897),
-                              fontFamily: 'Ubuntu',
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500),
+                            color: Color(0xFF798897),
+                            fontFamily: 'Ubuntu',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 26),
+                    const SizedBox(height: 16),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        IconButton(
-                          onPressed: () => openUrl(
-                              'https://www.linkedin.com/in/everaldo-martins-de-oliveira-214400b3'),
-                          icon: Image.asset(
-                            'assets/icons/linkedin.png',
-                            width: 40,
+                        Card(
+                          child: IconButton(
+                            onPressed: () => openUrl(
+                                'https://www.linkedin.com/in/everaldo-martins-de-oliveira-214400b3'),
+                            icon: Image.asset(
+                              'assets/icons/linkedin.png',
+                              width: 25,
+                            ),
                           ),
                         ),
-                        const SizedBox(width: 16),
-                        IconButton(
-                          onPressed: () => openUrl(
-                              'https://www.instagram.com/everaldo_martins1'),
-                          icon: Image.asset(
-                            'assets/icons/instagram.png',
-                            width: 40,
+                        Card(
+                          child: IconButton(
+                            onPressed: () => openUrl(
+                                'https://www.instagram.com/everaldo_martins1'),
+                            icon: Image.asset(
+                              'assets/icons/instagram.png',
+                              width: 25,
+                            ),
                           ),
                         ),
-                        const SizedBox(width: 16),
-                        IconButton(
-                          onPressed: () =>
-                              openUrl('https://github.com/Everaldo-Martins'),
-                          icon: Image.asset(
-                            'assets/icons/github.png',
-                            width: 40,
+                        Card(
+                          child: IconButton(
+                            onPressed: () =>
+                                openUrl('https://github.com/Everaldo-Martins'),
+                            icon: Image.asset(
+                              'assets/icons/github.png',
+                              width: 25,
+                            ),
                           ),
                         ),
-                        const SizedBox(width: 16),
-                        IconButton(
-                          onPressed: () =>
-                              openUrl('mailto:everaldoinfortecnico@gmail.com'),
-                          icon: Image.asset(
-                            'assets/icons/gmail.png',
-                            width: 40,
+                        Card(
+                          child: IconButton(
+                            onPressed: () => openUrl(
+                                'mailto:everaldoinfortecnico@gmail.com'),
+                            icon: Image.asset(
+                              'assets/icons/gmail.png',
+                              width: 25,
+                            ),
                           ),
                         ),
                       ],
