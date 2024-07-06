@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage>
         ),
       ),
       body: Container(
-        color: const Color(0x3F798897),
+        color: const Color(0x11798897),
         child: TabBarView(
           controller: _tabController,
           children: const [
