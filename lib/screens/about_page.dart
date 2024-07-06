@@ -15,19 +15,35 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFFF3B3F),
-        foregroundColor: const Color(0xFFFFF6F4),
-        centerTitle: true,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            SvgPicture.asset(
-              'assets/icon.svg',
-              height: 32,
-            ),
-          ],
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(80),
+        child: AppBar(
+          foregroundColor: const Color(0xFFFF3B3F),
+          elevation: 0,
+          flexibleSpace: Stack(
+            children: [
+              Positioned.fill(
+                child: Image.asset(
+                  'assets/images/bg_appbar.jpg',
+                  fit: BoxFit.cover,
+                ),
+              ),
+              AppBar(
+                backgroundColor: const Color(0x99FFF6F4),               
+                titleSpacing: 1,
+                centerTitle: true,
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icon.svg',
+                      height: 32,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       body: Column(

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class MediaAritmeticaScreen extends StatefulWidget {
-  const MediaAritmeticaScreen({super.key});
+class ArithmeticAverageScreen extends StatefulWidget {
+  const ArithmeticAverageScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _MediaAritmeticaScreenState createState() => _MediaAritmeticaScreenState();
+  _ArithmeticAverageScreenState createState() => _ArithmeticAverageScreenState();
 }
 
-class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
+class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
   int count = 2;
   double media = 0;
   String mediaResult = '';
@@ -206,8 +206,8 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
+    return Container(
+      padding: const EdgeInsets.all(16),      
       child: Column(
         children: [
           Expanded(
@@ -351,7 +351,7 @@ class _MediaAritmeticaScreenState extends State<MediaAritmeticaScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFFF3B3F),
                       foregroundColor: const Color(0xFFFFF6F4),
-                      disabledBackgroundColor: const Color(0x99FF3B3F),
+                      disabledBackgroundColor: const Color(0x66FF3B3F),
                       disabledForegroundColor: const Color(0x66FFF6F4),
                       elevation: 6,
                       padding: const EdgeInsets.symmetric(

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class MediaPonderadaScreen extends StatefulWidget {
-  const MediaPonderadaScreen({super.key});
+class WeightedAverageScreen extends StatefulWidget {
+  const WeightedAverageScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _MediaPonderadaScreenState createState() => _MediaPonderadaScreenState();
+  _WeightedAverageScreenState createState() => _WeightedAverageScreenState();
 }
 
-class _MediaPonderadaScreenState extends State<MediaPonderadaScreen> {
+class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
   int count = 2;
   List<TextEditingController> notaControllers =
       List.generate(2, (index) => TextEditingController());
@@ -225,8 +225,8 @@ class _MediaPonderadaScreenState extends State<MediaPonderadaScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
+    return Container(
+      padding: const EdgeInsets.all(16),
       child: Column(
         children: [
           Expanded(
@@ -407,7 +407,7 @@ class _MediaPonderadaScreenState extends State<MediaPonderadaScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFFF3B3F),
                       foregroundColor: const Color(0xFFFFF6F4),
-                      disabledBackgroundColor: const Color(0x99FF3B3F),
+                      disabledBackgroundColor: const Color(0x66FF3B3F),
                       disabledForegroundColor: const Color(0x66FFF6F4),
                       elevation: 6,
                       padding: const EdgeInsets.symmetric(

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class VerificarFinalScreen extends StatefulWidget {
-  const VerificarFinalScreen({super.key});
+class CheckFinalScreen extends StatefulWidget {
+  const CheckFinalScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _VerificarFinalScreenState createState() => _VerificarFinalScreenState();
+  _CheckFinalScreenState createState() => _CheckFinalScreenState();
 }
 
-class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
+class _CheckFinalScreenState extends State<CheckFinalScreen> {
   TextEditingController mediaController = TextEditingController();
   TextEditingController provaFinalController = TextEditingController();
   String finalResult = '';
@@ -152,8 +152,8 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
+    return Container(
+      padding: const EdgeInsets.all(16),
       child: Column(
         children: [
           Expanded(
@@ -257,7 +257,7 @@ class _VerificarFinalScreenState extends State<VerificarFinalScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFFF3B3F),
                       foregroundColor: const Color(0xFFFFF6F4),
-                      disabledBackgroundColor: const Color(0x99FF3B3F),
+                      disabledBackgroundColor: const Color(0x66FF3B3F),
                       disabledForegroundColor: const Color(0x66FFF6F4),
                       elevation: 6,
                       padding: const EdgeInsets.symmetric(
