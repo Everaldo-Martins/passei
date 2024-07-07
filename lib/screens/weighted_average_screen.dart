@@ -309,9 +309,11 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                 ElevatedButton(
                   onPressed: addNota,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFF3B3F),
-                    foregroundColor: const Color(0xFFFFF6F4),
-                    elevation: 6,
+                    backgroundColor: const Color(0xFFFFF6F4),
+                    foregroundColor: const Color(0xFFFF3B3F),
+                    disabledBackgroundColor: const Color(0x66FFF6F4),
+                    disabledForegroundColor: const Color(0x66FF3B3F),
+                    elevation: 8,
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
                       horizontal: 12,
@@ -322,9 +324,9 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                     children: [
                       Icon(
                         Icons.add,
-                        size: 26,
+                        size: 28,
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 2),
                       Text(
                         'Add',
                         style: TextStyle(
@@ -341,9 +343,11 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                 ElevatedButton(
                   onPressed: removeNota,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFF3B3F),
-                    foregroundColor: const Color(0xFFFFF6F4),
-                    elevation: 6,
+                    backgroundColor: const Color(0xFFFFF6F4),
+                    foregroundColor: const Color(0xFFFF3B3F),
+                    disabledBackgroundColor: const Color(0x66FFF6F4),
+                    disabledForegroundColor: const Color(0x66FF3B3F),
+                    elevation: 8,
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
                       horizontal: 12,
@@ -354,11 +358,11 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                     children: [
                       Icon(
                         Icons.remove,
-                        size: 26,
+                        size: 28,
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 2),
                       Text(
-                        'Remover',
+                        'Del',
                         style: TextStyle(
                             fontFamily: 'Ubuntu',
                             fontSize: 10,
@@ -372,9 +376,11 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
               ElevatedButton(
                 onPressed: clearFields,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFF3B3F),
-                  foregroundColor: const Color(0xFFFFF6F4),
-                  elevation: 6,
+                  backgroundColor: const Color(0xFFFFF6F4),
+                  foregroundColor: const Color(0xFFFF3B3F),
+                  disabledBackgroundColor: const Color(0x66FFF6F4),
+                  disabledForegroundColor: const Color(0x66FF3B3F),
+                  elevation: 8,
                   padding: const EdgeInsets.symmetric(
                     vertical: 10,
                     horizontal: 12,
@@ -385,9 +391,9 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                   children: [
                     Icon(
                       Icons.clear_all,
-                      size: 26,
+                      size: 28,
                     ),
-                    SizedBox(height: 4),
+                    SizedBox(height: 2),
                     Text(
                       'Limpar',
                       style: TextStyle(
@@ -405,11 +411,11 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                   return ElevatedButton(
                     onPressed: value ? calculateMediaPonderada : null,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFFF3B3F),
-                      foregroundColor: const Color(0xFFFFF6F4),
-                      disabledBackgroundColor: const Color(0x66FF3B3F),
-                      disabledForegroundColor: const Color(0x66FFF6F4),
-                      elevation: 6,
+                      backgroundColor: const Color(0xFFFFF6F4),
+                      foregroundColor: const Color(0xFFFF3B3F),
+                      disabledBackgroundColor: const Color(0x66FFF6F4),
+                      disabledForegroundColor: const Color(0x66FF3B3F),
+                      elevation: 8,
                       padding: const EdgeInsets.symmetric(
                         vertical: 10,
                         horizontal: 12,
@@ -420,9 +426,9 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                       children: [
                         Icon(
                           Icons.check,
-                          size: 26,
+                          size: 28,
                         ),
-                        SizedBox(height: 4),
+                        SizedBox(height: 2),
                         Text(
                           'Enviar',
                           style: TextStyle(

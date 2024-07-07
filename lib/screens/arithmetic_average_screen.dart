@@ -5,7 +5,8 @@ class ArithmeticAverageScreen extends StatefulWidget {
 
   @override
   // ignore: library_private_types_in_public_api
-  _ArithmeticAverageScreenState createState() => _ArithmeticAverageScreenState();
+  _ArithmeticAverageScreenState createState() =>
+      _ArithmeticAverageScreenState();
 }
 
 class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
@@ -207,7 +208,7 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),      
+      padding: const EdgeInsets.all(16),
       child: Column(
         children: [
           Expanded(
@@ -253,9 +254,11 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                 ElevatedButton(
                   onPressed: addNota,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFF3B3F),
-                    foregroundColor: const Color(0xFFFFF6F4),
-                    elevation: 6,
+                    backgroundColor: const Color(0xFFFFF6F4),
+                    foregroundColor: const Color(0xFFFF3B3F),
+                    disabledBackgroundColor: const Color(0x66FFF6F4),
+                    disabledForegroundColor: const Color(0x66FF3B3F),
+                    elevation: 8,
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
                       horizontal: 12,
@@ -266,9 +269,9 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                     children: [
                       Icon(
                         Icons.add,
-                        size: 26,
+                        size: 28,
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 2),
                       Text(
                         'Add',
                         style: TextStyle(
@@ -285,9 +288,11 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                 ElevatedButton(
                   onPressed: removeNota,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFF3B3F),
-                    foregroundColor: const Color(0xFFFFF6F4),
-                    elevation: 6,
+                    backgroundColor: const Color(0xFFFFF6F4),
+                    foregroundColor: const Color(0xFFFF3B3F),
+                    disabledBackgroundColor: const Color(0x66FFF6F4),
+                    disabledForegroundColor: const Color(0x66FF3B3F),
+                    elevation: 8,
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
                       horizontal: 12,
@@ -298,11 +303,11 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                     children: [
                       Icon(
                         Icons.remove,
-                        size: 26,
+                        size: 28,
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 2),
                       Text(
-                        'Remover',
+                        'Del',
                         style: TextStyle(
                             fontFamily: 'Ubuntu',
                             fontSize: 10,
@@ -316,9 +321,11 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
               ElevatedButton(
                 onPressed: clearFields,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFF3B3F),
-                  foregroundColor: const Color(0xFFFFF6F4),
-                  elevation: 6,
+                  backgroundColor: const Color(0xFFFFF6F4),
+                  foregroundColor: const Color(0xFFFF3B3F),
+                  disabledBackgroundColor: const Color(0x66FFF6F4),
+                  disabledForegroundColor: const Color(0x66FF3B3F),
+                  elevation: 8,
                   padding: const EdgeInsets.symmetric(
                     vertical: 10,
                     horizontal: 12,
@@ -329,9 +336,9 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                   children: [
                     Icon(
                       Icons.clear_all,
-                      size: 26,
+                      size: 28,
                     ),
-                    SizedBox(height: 4),
+                    SizedBox(height: 2),
                     Text(
                       'Limpar',
                       style: TextStyle(
@@ -349,11 +356,11 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                   return ElevatedButton(
                     onPressed: value ? calculateMedia : null,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFFF3B3F),
-                      foregroundColor: const Color(0xFFFFF6F4),
-                      disabledBackgroundColor: const Color(0x66FF3B3F),
-                      disabledForegroundColor: const Color(0x66FFF6F4),
-                      elevation: 6,
+                      backgroundColor: const Color(0xFFFFF6F4),
+                      foregroundColor: const Color(0xFFFF3B3F),
+                      disabledBackgroundColor: const Color(0x66FFF6F4),
+                      disabledForegroundColor: const Color(0x66FF3B3F),
+                      elevation: 8,
                       padding: const EdgeInsets.symmetric(
                         vertical: 10,
                         horizontal: 12,
@@ -364,9 +371,9 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                       children: [
                         Icon(
                           Icons.check,
-                          size: 26,
+                          size: 28,
                         ),
-                        SizedBox(height: 4),
+                        SizedBox(height: 2),
                         Text(
                           'Enviar',
                           style: TextStyle(
