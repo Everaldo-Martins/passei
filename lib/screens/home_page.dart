@@ -24,7 +24,10 @@ class _HomePageState extends State<HomePage>
   void initState() {
     super.initState();
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(
+      length: 3,
+      vsync: this,
+    );
   }
 
   @override
@@ -39,7 +42,7 @@ class _HomePageState extends State<HomePage>
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(150),
         child: AppBar(
-          backgroundColor: const Color(0x00FFF6F4),
+          backgroundColor: WidgetStateColor.transparent,
           flexibleSpace: Stack(
             children: [
               Positioned.fill(
@@ -133,7 +136,14 @@ class _HomePageState extends State<HomePage>
         ),
       ),
       body: Container(
-        color: const Color(0x11798897),
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/bg.png'),
+            fit: BoxFit.fitWidth,
+          ),
+        ),
         child: TabBarView(
           controller: _tabController,
           children: const [

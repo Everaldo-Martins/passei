@@ -242,7 +242,10 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                         child: TextField(
                           controller: notaControllers[index],
                           textInputAction: TextInputAction.next,
+                          maxLines: 1,
                           decoration: InputDecoration(
+                            filled: true,
+                            fillColor: const Color(0xFFFFF6F4),
                             labelText: 'Insira a ${index + 1}ª nota',
                             labelStyle: const TextStyle(
                               fontFamily: 'Ubuntu',
@@ -272,7 +275,10 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                         child: TextField(
                           controller: pesoControllers[index],
                           textInputAction: TextInputAction.next,
+                          maxLines: 1,
                           decoration: const InputDecoration(
+                            filled: true,
+                            fillColor: Color(0xFFFFF6F4),
                             labelText: 'Peso',
                             labelStyle: TextStyle(
                               fontFamily: 'Ubuntu',
@@ -311,8 +317,8 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFFFF6F4),
                     foregroundColor: const Color(0xFFFF3B3F),
-                    disabledBackgroundColor: const Color(0x66FFF6F4),
-                    disabledForegroundColor: const Color(0x66FF3B3F),
+                    disabledBackgroundColor: const Color(0xAAFFF6F4),
+                    disabledForegroundColor: const Color(0xAAFF3B3F),
                     elevation: 8,
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
@@ -339,14 +345,14 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                 ),
               ],
               if (count > 2) ...[
-                const SizedBox(width: 10),
+                const SizedBox(width: 16),
                 ElevatedButton(
                   onPressed: removeNota,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFFFF6F4),
                     foregroundColor: const Color(0xFFFF3B3F),
-                    disabledBackgroundColor: const Color(0x66FFF6F4),
-                    disabledForegroundColor: const Color(0x66FF3B3F),
+                    disabledBackgroundColor: const Color(0xAAFFF6F4),
+                    disabledForegroundColor: const Color(0xAAFF3B3F),
                     elevation: 8,
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
@@ -372,14 +378,14 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                   ),
                 ),
               ],
-              const SizedBox(width: 10),
+              const SizedBox(width: 16),
               ElevatedButton(
                 onPressed: clearFields,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFFFF6F4),
                   foregroundColor: const Color(0xFFFF3B3F),
-                  disabledBackgroundColor: const Color(0x66FFF6F4),
-                  disabledForegroundColor: const Color(0x66FF3B3F),
+                  disabledBackgroundColor: const Color(0xAAFFF6F4),
+                  disabledForegroundColor: const Color(0xAAFF3B3F),
                   elevation: 8,
                   padding: const EdgeInsets.symmetric(
                     vertical: 10,
@@ -404,7 +410,7 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                   ],
                 ),
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 16),
               ValueListenableBuilder<bool>(
                 valueListenable: isButtonEnabled,
                 builder: (context, value, child) {
@@ -413,8 +419,8 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFFFF6F4),
                       foregroundColor: const Color(0xFFFF3B3F),
-                      disabledBackgroundColor: const Color(0x66FFF6F4),
-                      disabledForegroundColor: const Color(0x66FF3B3F),
+                      disabledBackgroundColor: const Color(0xAAFFF6F4),
+                      disabledForegroundColor: const Color(0xAAFF3B3F),
                       elevation: 8,
                       padding: const EdgeInsets.symmetric(
                         vertical: 10,

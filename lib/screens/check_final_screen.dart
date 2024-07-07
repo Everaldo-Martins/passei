@@ -162,7 +162,10 @@ class _CheckFinalScreenState extends State<CheckFinalScreen> {
                 TextField(
                   controller: mediaController,
                   textInputAction: TextInputAction.next,
+                  maxLines: 1,
                   decoration: const InputDecoration(
+                    filled: true,
+                    fillColor:Color(0xFFFFF6F4),
                     labelText: 'Média',
                     labelStyle: TextStyle(
                       fontFamily: 'Ubuntu',
@@ -189,7 +192,10 @@ class _CheckFinalScreenState extends State<CheckFinalScreen> {
                 TextField(
                   controller: provaFinalController,
                   textInputAction: TextInputAction.done,
+                  maxLines: 1,
                   decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Color(0xFFFFF6F4),
                     labelText: 'Prova Final',
                     labelStyle: TextStyle(
                       fontFamily: 'Ubuntu',
@@ -224,8 +230,8 @@ class _CheckFinalScreenState extends State<CheckFinalScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFFFF6F4),
                   foregroundColor: const Color(0xFFFF3B3F),
-                  disabledBackgroundColor: const Color(0x66FFF6F4),
-                  disabledForegroundColor: const Color(0x66FF3B3F),
+                  disabledBackgroundColor: const Color(0xAAFFF6F4),
+                  disabledForegroundColor: const Color(0xAAFF3B3F),
                   elevation: 8,
                   padding: const EdgeInsets.symmetric(
                     vertical: 10,
@@ -259,8 +265,8 @@ class _CheckFinalScreenState extends State<CheckFinalScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFFFF6F4),
                       foregroundColor: const Color(0xFFFF3B3F),
-                      disabledBackgroundColor: const Color(0x66FFF6F4),
-                      disabledForegroundColor: const Color(0x66FF3B3F),
+                      disabledBackgroundColor: const Color(0xAAFFF6F4),
+                      disabledForegroundColor: const Color(0xAAFF3B3F),
                       elevation: 8,
                       padding: const EdgeInsets.symmetric(
                         vertical: 10,

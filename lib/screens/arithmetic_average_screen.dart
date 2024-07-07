@@ -218,9 +218,12 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: TextField(
+                    maxLines: 1,
                     controller: notaControllers[index],
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
+                      filled: true,
+                      fillColor: const Color(0xFFFFF6F4),
                       labelText: 'Insira a ${index + 1}ª nota',
                       labelStyle: const TextStyle(
                         fontFamily: 'Ubuntu',
@@ -228,7 +231,7 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                       ),
                       floatingLabelStyle: const TextStyle(
                         fontFamily: 'Ubuntu',
-                        color: Color(0xFFFF3B3F),
+                        color: Color(0xFFFF3B3F),                        
                       ),
                       focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(
@@ -256,8 +259,8 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFFFF6F4),
                     foregroundColor: const Color(0xFFFF3B3F),
-                    disabledBackgroundColor: const Color(0x66FFF6F4),
-                    disabledForegroundColor: const Color(0x66FF3B3F),
+                    disabledBackgroundColor: const Color(0xAAFFF6F4),
+                    disabledForegroundColor: const Color(0xAAFF3B3F),
                     elevation: 8,
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
@@ -284,14 +287,14 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                 ),
               ],
               if (count > 2) ...[
-                const SizedBox(width: 10),
+                const SizedBox(width: 16),
                 ElevatedButton(
                   onPressed: removeNota,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFFFF6F4),
                     foregroundColor: const Color(0xFFFF3B3F),
-                    disabledBackgroundColor: const Color(0x66FFF6F4),
-                    disabledForegroundColor: const Color(0x66FF3B3F),
+                    disabledBackgroundColor: const Color(0xAAFFF6F4),
+                    disabledForegroundColor: const Color(0xAAFF3B3F),
                     elevation: 8,
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
@@ -317,14 +320,14 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                   ),
                 ),
               ],
-              const SizedBox(width: 10),
+              const SizedBox(width: 16),
               ElevatedButton(
                 onPressed: clearFields,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFFFF6F4),
                   foregroundColor: const Color(0xFFFF3B3F),
-                  disabledBackgroundColor: const Color(0x66FFF6F4),
-                  disabledForegroundColor: const Color(0x66FF3B3F),
+                  disabledBackgroundColor: const Color(0xAAFFF6F4),
+                  disabledForegroundColor: const Color(0xAAFF3B3F),
                   elevation: 8,
                   padding: const EdgeInsets.symmetric(
                     vertical: 10,
@@ -349,7 +352,7 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                   ],
                 ),
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 16),
               ValueListenableBuilder<bool>(
                 valueListenable: isButtonEnabled,
                 builder: (context, value, child) {
@@ -358,8 +361,8 @@ class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFFFF6F4),
                       foregroundColor: const Color(0xFFFF3B3F),
-                      disabledBackgroundColor: const Color(0x66FFF6F4),
-                      disabledForegroundColor: const Color(0x66FF3B3F),
+                      disabledBackgroundColor: const Color(0xAAFFF6F4),
+                      disabledForegroundColor: const Color(0xAAFF3B3F),
                       elevation: 8,
                       padding: const EdgeInsets.symmetric(
                         vertical: 10,
