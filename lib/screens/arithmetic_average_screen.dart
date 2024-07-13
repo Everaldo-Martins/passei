@@ -4,12 +4,11 @@ class ArithmeticAverageScreen extends StatefulWidget {
   const ArithmeticAverageScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _ArithmeticAverageScreenState createState() =>
-      _ArithmeticAverageScreenState();
+  ArithmeticAverageScreenState createState() =>
+      ArithmeticAverageScreenState();
 }
 
-class _ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
+class ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
   int count = 2;
   double media = 0;
   String mediaResult = '';

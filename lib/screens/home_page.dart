@@ -7,16 +7,13 @@ import 'weighted_average_screen.dart';
 import 'check_final_screen.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
-
-  final String title;
+  const HomePage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
+class HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
@@ -39,6 +36,7 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(150),
         child: AppBar(
@@ -81,7 +79,7 @@ class _HomePageState extends State<HomePage>
                 bottom: TabBar(
                   controller: _tabController,
                   indicatorColor: const Color(0xFFFF3B3F),
-                  unselectedLabelColor: const Color(0x66FF3B3F),
+                  unselectedLabelColor: const Color(0xFFFF3B3F),
                   labelColor: const Color(0xFFFF3B3F),
                   overlayColor: const WidgetStatePropertyAll(Color(0x22FF3B3F)),
                   indicatorWeight: 1,
@@ -120,7 +118,7 @@ class _HomePageState extends State<HomePage>
                         size: 32,
                       ),
                       child: Text(
-                        'Final',
+                        'Prova Final',
                         style: TextStyle(
                           fontFamily: 'Ubuntu',
                           fontWeight: FontWeight.normal,
@@ -141,7 +139,8 @@ class _HomePageState extends State<HomePage>
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/bg.png'),
-            fit: BoxFit.fitWidth,
+            fit: BoxFit.cover,
+            opacity: 0.4,
           ),
         ),
         child: TabBarView(

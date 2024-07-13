@@ -4,11 +4,10 @@ class WeightedAverageScreen extends StatefulWidget {
   const WeightedAverageScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _WeightedAverageScreenState createState() => _WeightedAverageScreenState();
+  WeightedAverageScreenState createState() => WeightedAverageScreenState();
 }
 
-class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
+class WeightedAverageScreenState extends State<WeightedAverageScreen> {
   int count = 2;
   List<TextEditingController> notaControllers =
       List.generate(2, (index) => TextEditingController());

@@ -4,11 +4,10 @@ class CheckFinalScreen extends StatefulWidget {
   const CheckFinalScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _CheckFinalScreenState createState() => _CheckFinalScreenState();
+  CheckFinalScreenState createState() => CheckFinalScreenState();
 }
 
-class _CheckFinalScreenState extends State<CheckFinalScreen> {
+class CheckFinalScreenState extends State<CheckFinalScreen> {
   TextEditingController mediaController = TextEditingController();
   TextEditingController provaFinalController = TextEditingController();
   final ValueNotifier<bool> isButtonEnabled = ValueNotifier<bool>(false);

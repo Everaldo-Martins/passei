@@ -46,7 +46,15 @@ class About extends StatelessWidget {
         ),
       ),
       body: Container(
-        color: const Color(0x11798897),
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/bg.png'),
+            fit: BoxFit.cover,
+            opacity: 0.4,
+          ),
+        ),
         child: Column(
           children: [
             Expanded(
@@ -61,7 +69,7 @@ class About extends StatelessWidget {
                       children: [
                         Flexible(
                           child: Text(
-                            'Olá, esse é o aplicativo Passei! Esta aplicação foi desenvolvido inteiramente com Flutter. Ele foi projetado para ajudar estudantes a calcular de forma rápida suas médias, sejam elas aritmética, ponderada ou final. O aplicativo também informa se o aluno está aprovado, faz a final ou está reprovado com base em suas notas.',
+                            'Olá, este é o aplicativo Passei! Desenvolvido inteiramente com Flutter, ele ajuda estudantes a calcular rapidamente suas médias aritméticas, ponderadas ou finais. Com base nas informações fornecidas, o aplicativo informa se o aluno está aprovado, precisa fazer a final ou está reprovado.',
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'Ubuntu',
@@ -100,7 +108,7 @@ class About extends StatelessWidget {
                         const SizedBox(width: 16),
                         const Flexible(
                           child: Text(
-                            'Adiciona um novo campo. Será exibido até que o número de campos seja menor que quatro.',
+                            'Adiciona um novo campo. Será exibido enquanto houver menos de quatro campos.',
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'Ubuntu',
@@ -122,7 +130,7 @@ class About extends StatelessWidget {
                         const SizedBox(width: 16),
                         const Flexible(
                           child: Text(
-                            'Remove o último campo adicionado. Será exibido somente quando o número de campos for maior que dois.',
+                            'Remove o último campo adicionado. Será exibido somente quando houver mais de dois campos.',
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'Ubuntu',
@@ -166,7 +174,7 @@ class About extends StatelessWidget {
                         const SizedBox(width: 16),
                         const Flexible(
                           child: Text(
-                            'Envia o conteúdo do formulário para verificação da média. Só funcionará se todos os campos tiverem informações.',
+                            'Envia o formulário para verificar a média. Só funcionará se todos os campos estiverem preenchidos.',
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'Ubuntu',
