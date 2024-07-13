@@ -147,11 +147,11 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                         ),
                         const SizedBox(height: 16),
                         const Text(
-                          'Média',
+                          'sua média',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontFamily: 'Ubuntu',
-                            fontSize: 16,
+                            fontSize: 18,
                             fontWeight: FontWeight.normal,
                             color: Color(0xFF798897),
                           ),
@@ -170,11 +170,11 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                         if (needed > 0) ...[
                           const SizedBox(height: 16),
                           const Text(
-                            'Precisando',
+                            'precisa de',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontFamily: 'Ubuntu',
-                              fontSize: 16,
+                              fontSize: 18,
                               fontWeight: FontWeight.normal,
                               color: Color(0xFF798897),
                             ),
@@ -187,6 +187,17 @@ class _WeightedAverageScreenState extends State<WeightedAverageScreen> {
                               fontFamily: 'Ubuntu',
                               fontSize: 46,
                               fontWeight: FontWeight.bold,
+                              color: Color(0xFF798897),
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          const Text(
+                            'para ser aprovado.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: 'Ubuntu',
+                              fontSize: 18,
+                              fontWeight: FontWeight.normal,
                               color: Color(0xFF798897),
                             ),
                           ),

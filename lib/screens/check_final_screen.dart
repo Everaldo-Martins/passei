@@ -11,10 +11,10 @@ class CheckFinalScreen extends StatefulWidget {
 class _CheckFinalScreenState extends State<CheckFinalScreen> {
   TextEditingController mediaController = TextEditingController();
   TextEditingController provaFinalController = TextEditingController();
+  final ValueNotifier<bool> isButtonEnabled = ValueNotifier<bool>(false);
   String finalResult = '';
   String mediaResult = '';
   late Color cor;
-  final ValueNotifier<bool> isButtonEnabled = ValueNotifier<bool>(false);
 
   @override
   void initState() {
@@ -93,11 +93,11 @@ class _CheckFinalScreenState extends State<CheckFinalScreen> {
                         ),
                         const SizedBox(height: 16),
                         const Text(
-                          'Média',
+                          'com média',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontFamily: 'Ubuntu',
-                            fontSize: 16,
+                            fontSize: 18,
                             fontWeight: FontWeight.normal,
                             color: Color(0xFF798897),
                           ),
@@ -165,7 +165,7 @@ class _CheckFinalScreenState extends State<CheckFinalScreen> {
                   maxLines: 1,
                   decoration: const InputDecoration(
                     filled: true,
-                    fillColor:Color(0xFFFFF6F4),
+                    fillColor: Color(0xFFFFF6F4),
                     labelText: 'Média',
                     labelStyle: TextStyle(
                       fontFamily: 'Ubuntu',

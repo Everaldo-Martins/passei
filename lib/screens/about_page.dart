@@ -19,7 +19,6 @@ class About extends StatelessWidget {
         preferredSize: const Size.fromHeight(80),
         child: AppBar(
           foregroundColor: const Color(0xFFFF3B3F),
-          elevation: 0,
           flexibleSpace: Stack(
             children: [
               Positioned.fill(
@@ -62,11 +61,11 @@ class About extends StatelessWidget {
                       children: [
                         Flexible(
                           child: Text(
-                            'Bem-vindo (a) ao aplicativo Passei! Esta aplicação, desenvolvida em Flutter, foi projetada para ajudar estudantes a calcular rapidamente suas médias, seja aritmética, ponderada ou final. O aplicativo também informa se o aluno foi aprovado ou reprovado com base em suas notas.',
+                            'Olá, esse é o aplicativo Passei! Esta aplicação foi desenvolvido inteiramente com Flutter. Ele foi projetado para ajudar estudantes a calcular de forma rápida suas médias, sejam elas aritmética, ponderada ou final. O aplicativo também informa se o aluno está aprovado, faz a final ou está reprovado com base em suas notas.',
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'Ubuntu',
-                              fontSize: 14,
+                              fontSize: 13,
                               fontWeight: FontWeight.w400,
                               color: Color(0xFF798897),
                             ),
@@ -105,7 +104,7 @@ class About extends StatelessWidget {
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'Ubuntu',
-                              fontSize: 14,
+                              fontSize: 13,
                               fontWeight: FontWeight.w400,
                               color: Color(0xFF798897),
                             ),
@@ -127,7 +126,7 @@ class About extends StatelessWidget {
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'Ubuntu',
-                              fontSize: 14,
+                              fontSize: 13,
                               fontWeight: FontWeight.w400,
                               color: Color(0xFF798897),
                             ),
@@ -149,7 +148,7 @@ class About extends StatelessWidget {
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'Ubuntu',
-                              fontSize: 14,
+                              fontSize: 13,
                               fontWeight: FontWeight.w400,
                               color: Color(0xFF798897),
                             ),
@@ -171,7 +170,7 @@ class About extends StatelessWidget {
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'Ubuntu',
-                              fontSize: 14,
+                              fontSize: 13,
                               fontWeight: FontWeight.w400,
                               color: Color(0xFF798897),
                             ),
