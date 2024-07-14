@@ -1,6 +1,6 @@
 # 📱 Passei
 
-Bem-vindo (a) ao aplicativo **Passei**! Esta aplicação, desenvolvida em Flutter, foi projetada para ajudar estudantes a calcular rapidamente suas médias, seja aritmética, ponderada ou final. O aplicativo também informa se o aluno foi aprovado ou reprovado com base em suas notas.
+Olá, este é o aplicativo **Passei**! Desenvolvido inteiramente com Flutter, ele ajuda estudantes a calcular rapidamente suas médias aritméticas, ponderadas ou finais. Com base nas informações fornecidas, o aplicativo informa se o aluno está aprovado, precisa fazer a final ou está reprovado.
 
 ## 🚀 Funcionalidades
 
@@ -67,6 +67,11 @@ A estrutura principal do projeto é composta pelos seguintes arquivos:
 ## 🌟 Contribuições
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests. Veja nosso [Guia de Contribuição](CONTRIBUTING.md) para mais detalhes.
+
+## 📥 Download Apk Android
+
+- [APK Passei]('download/app-release.apk')
+- [SHA1 Passei]('download/app-release.apk.sha1')
 
 ## 📄 Licença
 
