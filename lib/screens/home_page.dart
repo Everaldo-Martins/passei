@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'about_page.dart';
 import 'arithmetic_average_screen.dart';
-import 'weighted_average_screen.dart';
 import 'check_final_screen.dart';
+import 'weighted_average_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
