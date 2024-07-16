@@ -70,8 +70,8 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull re
 
 ## 📥 Download Apk Android
 
-- [APK Passei]('download/app-release.apk')
-- [SHA1 Passei]('download/app-release.apk.sha1')
+- [APK Passei](download/app-release.apk)
+- [SHA1 Passei](download/app-release.apk.sha1)
 
 ## 📄 Licença
 
