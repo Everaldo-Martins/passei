@@ -11,9 +11,6 @@ class CheckFinalScreenState extends State<CheckFinalScreen> {
   TextEditingController mediaController = TextEditingController();
   TextEditingController provaFinalController = TextEditingController();
   final ValueNotifier<bool> isButtonEnabled = ValueNotifier<bool>(false);
-  String finalResult = '';
-  String mediaResult = '';
-  late Color cor;
 
   @override
   void initState() {
@@ -33,26 +30,10 @@ class CheckFinalScreenState extends State<CheckFinalScreen> {
 
     double finalMedia = ((media * 6) + (provaFinal * 4)) / 10;
 
-    setState(() {
-      if (finalMedia >= 5.0) {
-        finalResult = 'Aprovado';
-        mediaResult = finalMedia.toStringAsFixed(2);
-        cor = const Color(0xFF00FF55);
-      } else {
-        finalResult = 'Reprovado';
-        mediaResult = finalMedia.toStringAsFixed(2);
-        cor = const Color(0xFFFF0000);
-      }
-    });
-
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: const Color(0xFFFFF6F4),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
           contentPadding: const EdgeInsets.all(15),
           content: SingleChildScrollView(
             child: Stack(
@@ -61,11 +42,7 @@ class CheckFinalScreenState extends State<CheckFinalScreen> {
                   right: 0,
                   top: 0,
                   child: IconButton(
-                    icon: const Icon(
-                      Icons.close_rounded,
-                      size: 28,
-                    ),
-                    color: const Color(0xFFFF3B3F),
+                    icon: const Icon(Icons.close_rounded, size: 28),
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
@@ -80,36 +57,17 @@ class CheckFinalScreenState extends State<CheckFinalScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        Text(finalMedia >= 5.0 ? 'Aprovado' : 'Reprovado'),
+                        SizedBox(height: 16),
+                        Text('com média'),
+                        SizedBox(height: 16),
                         Text(
-                          finalResult,
-                          textAlign: TextAlign.center,
+                          finalMedia.toStringAsFixed(2),
                           style: TextStyle(
-                            fontFamily: 'Ubuntu',
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                            color: cor,
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        const Text(
-                          'com média',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: 'Ubuntu',
-                            fontSize: 18,
-                            fontWeight: FontWeight.normal,
-                            color: Color(0xFF798897),
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          mediaResult,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontFamily: 'Ubuntu',
-                            fontSize: 46,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF798897),
+                            color:
+                                finalMedia >= 5.0
+                                    ? Color(0xFF00FF55)
+                                    : Color(0xFFFF0000),
                           ),
                         ),
                       ],
@@ -127,10 +85,6 @@ class CheckFinalScreenState extends State<CheckFinalScreen> {
   void clearFields() {
     mediaController.clear();
     provaFinalController.clear();
-    setState(() {
-      finalResult = '';
-      mediaResult = '';
-    });
     isButtonEnabled.value = false;
   }
 
@@ -162,59 +116,13 @@ class CheckFinalScreenState extends State<CheckFinalScreen> {
                   controller: mediaController,
                   textInputAction: TextInputAction.next,
                   maxLines: 1,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    fillColor: Color(0xFFFFF6F4),
-                    labelText: 'Média',
-                    labelStyle: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      color: Color(0xFF798897),
-                    ),
-                    floatingLabelStyle: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      color: Color(0xFFFF3B3F),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFFF3B3F),
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFFF3B3F),
-                      ),
-                    ),
-                  ),
                   keyboardType: TextInputType.number,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 TextField(
                   controller: provaFinalController,
                   textInputAction: TextInputAction.done,
                   maxLines: 1,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    fillColor: Color(0xFFFFF6F4),
-                    labelText: 'Prova Final',
-                    labelStyle: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      color: Color(0xFF798897),
-                    ),
-                    floatingLabelStyle: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      color: Color(0xFFFF3B3F),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFFF3B3F),
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFFF3B3F),
-                      ),
-                    ),
-                  ),
                   keyboardType: TextInputType.number,
                 ),
               ],
@@ -226,69 +134,15 @@ class CheckFinalScreenState extends State<CheckFinalScreen> {
             children: [
               ElevatedButton(
                 onPressed: clearFields,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFFF6F4),
-                  foregroundColor: const Color(0xFFFF3B3F),
-                  disabledBackgroundColor: const Color(0xAAFFF6F4),
-                  disabledForegroundColor: const Color(0xAAFF3B3F),
-                  elevation: 8,
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 12,
-                  ),
-                ),
-                child: const Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.clear_all,
-                      size: 28,
-                    ),
-                    SizedBox(height: 2),
-                    Text(
-                      'Limpar',
-                      style: TextStyle(
-                          fontFamily: 'Ubuntu',
-                          fontSize: 10,
-                          fontWeight: FontWeight.normal),
-                    ),
-                  ],
-                ),
+                child: Icon(Icons.clear_all, size: 28),
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: 10),
               ValueListenableBuilder<bool>(
                 valueListenable: isButtonEnabled,
                 builder: (context, value, child) {
                   return ElevatedButton(
                     onPressed: value ? verifyFinal : null,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFFFF6F4),
-                      foregroundColor: const Color(0xFFFF3B3F),
-                      disabledBackgroundColor: const Color(0xAAFFF6F4),
-                      disabledForegroundColor: const Color(0xAAFF3B3F),
-                      elevation: 8,
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 12,
-                      ),
-                    ),
-                    child: const Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          Icons.check,
-                          size: 28,
-                        ),
-                        SizedBox(height: 2),
-                        Text(
-                          'Enviar',
-                          style: TextStyle(
-                              fontFamily: 'Ubuntu',
-                              fontSize: 10,
-                              fontWeight: FontWeight.normal),
-                        ),
-                      ],
-                    ),
+                    child: Icon(Icons.check, size: 28),
                   );
                 },
               ),

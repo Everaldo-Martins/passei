@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'screens/home_page.dart';
+import 'package:flutter/services.dart';
+import 'package:passei/screens/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(const Passei());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Passei extends StatelessWidget {
+  const Passei({super.key});
 
   @override
   Widget build(BuildContext context) {
