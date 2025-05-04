@@ -19,8 +19,17 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  flutter_native_splash: ^2.4.6
   flutter_lints: ^5.0.0
+
+flutter_native_splash:
+  color: "#111A22"
+  image: assets/images/logo.png
+  android: true
+  ios: false
+  android_12:
+    icon_background_color: "#111A22"
+    image: assets/images/logo.png
 
 
 flutter:  
@@ -28,7 +37,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
-    - assets/icons/
+    - assets/images/icons/
   
   fonts:
     - family: Ubuntu

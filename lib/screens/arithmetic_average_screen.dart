@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:passei/themes/app_themes.dart';
 
 class ArithmeticAverageScreen extends StatefulWidget {
   const ArithmeticAverageScreen({super.key});
@@ -17,13 +18,29 @@ class ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
     (index) => TextEditingController(),
   );
   final ValueNotifier<bool> isButtonEnabled = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> hasContent = ValueNotifier<bool>(false);
 
   @override
   void initState() {
     super.initState();
     for (var controller in notaControllers) {
       controller.addListener(_validateFields);
+      controller.addListener(_updateButtonState);
     }
+  }
+
+  void _updateButtonState() {
+    hasContent.value = notaControllers.any((c) => c.text.isNotEmpty);
+  }
+
+  @override
+  void dispose() {
+    for (var controller in notaControllers) {
+      controller.removeListener(_updateButtonState);
+      controller.dispose();
+    }
+    hasContent.dispose();
+    super.dispose();
   }
 
   void addNota() {
@@ -75,54 +92,61 @@ class ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          contentPadding: const EdgeInsets.all(15),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.close_rounded, size: 28),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          contentPadding: const EdgeInsets.all(16),
+          actions: [],
           content: SingleChildScrollView(
-            child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    media >= 7.0
-                        ? 'Aprovado'
-                        : media >= 4.0
-                        ? 'Faz a Final'
-                        : 'Reprovado',
-                    style: TextStyle(
-                      color:
-                          media >= 7.0
-                              ? const Color(0xFF00FF55)
-                              : media >= 4.0
-                              ? const Color(0xFFFF9500)
-                              : const Color(0xFFFF0000),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.close_rounded, size: 28),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
                     ),
+                  ],
+                ),
+                Text(
+                  media >= 7.0
+                      ? 'Aprovado'
+                      : media >= 4.0
+                      ? 'Faz a Final'
+                      : 'Reprovado',
+                  style: TextStyle(
+                    color:
+                        media >= 7.0
+                            ? AppThemes.approved
+                            : media >= 4.0
+                            ? AppThemes.makefinal
+                            : AppThemes.failed,
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                const Text('sua média'),
+                const SizedBox(height: 16),
+                Text(
+                  media.toStringAsFixed(2),
+                  style: TextStyle(fontSize: 26, fontWeight: FontWeight.w500),
+                ),
+                if (needed > 0.0) ...[
+                  const SizedBox(height: 16),
+                  const Text('precisa de'),
+                  const SizedBox(height: 16),
+                  Text(
+                    needed.toStringAsFixed(2),
+                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.w500),
                   ),
                   const SizedBox(height: 16),
-                  const Text('sua média'),
-                  const SizedBox(height: 16),
-                  Text(media.toStringAsFixed(2)),
-                  if (needed > 0.0) ...[
-                    const SizedBox(height: 16),
-                    const Text('precisa de'),
-                    const SizedBox(height: 16),
-                    Text(needed.toStringAsFixed(2)),
-                    const SizedBox(height: 16),
-                    const Text('para ser aprovado.'),
-                  ],
+                  const Text('para ser aprovado.'),
                 ],
-              ),
+              ],
             ),
           ),
         );
@@ -138,19 +162,12 @@ class ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
   }
 
   @override
-  void dispose() {
-    for (var controller in notaControllers) {
-      controller.removeListener(_validateFields);
-      controller.dispose();
-    }
-    isButtonEnabled.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
-      child: Container(
+    final theme = Theme.of(context);
+
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      body: Container(
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
@@ -175,6 +192,7 @@ class ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                             RegExp(r'^\d*\.?\d{0,2}'),
                           ),
                         ],
+                        decoration: const InputDecoration(labelText: 'Nota'),
                       ),
                     ),
                   );
@@ -184,37 +202,80 @@ class ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                if (count < 4) ...[
-                  ElevatedButton(
-                    onPressed: addNota,
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(60, 60),
-                      padding: const EdgeInsets.all(0),
-                    ),
-                    child: const Icon(Icons.add, size: 28),
-                  ),
-                ],
-                if (count > 2) ...[
-                  const SizedBox(width: 16),
-                  ElevatedButton(
-                    onPressed: removeNota,
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(60, 60),
-                      padding: const EdgeInsets.all(0),
-                    ),
-                    child: const Icon(Icons.remove, size: 28),
-                  ),
-                ],
-                const SizedBox(width: 16),
+                // Botão Adicionar
                 ElevatedButton(
-                  onPressed: clearFields,
+                  onPressed: count < 4 ? addNota : null,
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(60, 60),
                     padding: const EdgeInsets.all(0),
+                    backgroundColor:
+                        count < 4
+                            ? theme.colorScheme.primary
+                            : theme.colorScheme.surfaceContainerHighest,
+                    foregroundColor:
+                        count < 4
+                            ? theme.colorScheme.onPrimary
+                            : theme.colorScheme.onSurface.withValues(
+                              alpha: 0.38,
+                            ),
                   ),
-                  child: const Icon(Icons.clear_all, size: 28),
+                  child: const Icon(Icons.add, size: 28),
                 ),
+
                 const SizedBox(width: 16),
+
+                // Botão Remover
+                ElevatedButton(
+                  onPressed: count > 2 ? removeNota : null,
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(60, 60),
+                    padding: const EdgeInsets.all(0),
+                    backgroundColor:
+                        count > 2
+                            ? theme.colorScheme.primary
+                            : theme.colorScheme.surfaceContainerHighest,
+                    foregroundColor:
+                        count > 2
+                            ? theme.colorScheme.onPrimary
+                            : theme.colorScheme.onSurface.withValues(
+                              alpha: 0.38,
+                            ),
+                  ),
+                  child: const Icon(Icons.remove, size: 28),
+                ),
+
+                const SizedBox(width: 16),
+
+                // Botão Limpar
+                ValueListenableBuilder<bool>(
+                  valueListenable: hasContent,
+                  builder: (context, hasContentValue, child) {
+                    return ElevatedButton(
+                      onPressed: hasContentValue ? clearFields : null,
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(60, 60),
+                        padding: EdgeInsets.zero,
+                        backgroundColor:
+                            hasContentValue
+                                ? Theme.of(context).colorScheme.primary
+                                : Theme.of(
+                                  context,
+                                ).colorScheme.surfaceContainerHighest,
+                        foregroundColor:
+                            hasContentValue
+                                ? Theme.of(context).colorScheme.onPrimary
+                                : Theme.of(
+                                  context,
+                                ).colorScheme.onSurface.withValues(alpha: 0.38),
+                      ),
+                      child: const Icon(Icons.clear_all, size: 28),
+                    );
+                  },
+                ),
+
+                const SizedBox(width: 16),
+
+                // Botão Calcular
                 ValueListenableBuilder<bool>(
                   valueListenable: isButtonEnabled,
                   builder: (context, value, child) {
@@ -223,6 +284,16 @@ class ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(60, 60),
                         padding: const EdgeInsets.all(0),
+                        backgroundColor:
+                            value
+                                ? theme.colorScheme.primary
+                                : theme.colorScheme.surfaceContainerHighest,
+                        foregroundColor:
+                            value
+                                ? theme.colorScheme.onPrimary
+                                : theme.colorScheme.onSurface.withValues(
+                                  alpha: 0.38,
+                                ),
                       ),
                       child: const Icon(Icons.check, size: 28),
                     );

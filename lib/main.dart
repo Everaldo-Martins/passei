@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:passei/themes/theme_manager.dart';
 import 'package:passei/themes/app_themes.dart';
 
-main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final sharedPreferences = await SharedPreferences.getInstance();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -31,7 +31,6 @@ class Passei extends StatelessWidget {
       darkTheme: AppThemes.darkTheme,
       themeMode: themeManager.themeMode,
       home: const HomePage(),
-      routes: {'/home': (context) => const HomePage()},
     );
   }
 }
