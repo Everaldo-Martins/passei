@@ -301,6 +301,7 @@ class ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                 ),
               ],
             ),
+            SizedBox(height: 40),
           ],
         ),
       ),

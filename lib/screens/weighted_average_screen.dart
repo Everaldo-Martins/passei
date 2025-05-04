@@ -381,6 +381,7 @@ class WeightedAverageScreenState extends State<WeightedAverageScreen> {
                 ),
               ],
             ),
+            SizedBox(height: 40),
           ],
         ),
       ),

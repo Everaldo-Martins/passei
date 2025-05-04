@@ -171,6 +171,7 @@ class CheckFinalScreenState extends State<CheckFinalScreen> {
               ),
               const SizedBox(height: 16),
               _buildActionButtons(context, theme),
+              SizedBox(height: 40),
             ],
           ),
         ),
