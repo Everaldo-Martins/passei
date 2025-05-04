@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
-  late TabController _tabController;
+  late final TabController _tabController;
 
   @override
   void initState() {
@@ -33,20 +33,19 @@ class HomePageState extends State<HomePage>
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(150),
+        preferredSize: const Size.fromHeight(100.0),
         child: AppBar(
           centerTitle: true,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SvgPicture.asset('assets/icon.svg', height: 32),
+              Flexible(child: SvgPicture.asset('assets/icon.svg', height: 32)),
               IconButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const About()),
-                  );
-                },
+                onPressed:
+                    () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const About()),
+                    ),
                 icon: const Icon(Icons.help, size: 32),
               ),
             ],
@@ -54,15 +53,31 @@ class HomePageState extends State<HomePage>
           bottom: TabBar(
             controller: _tabController,
             indicatorWeight: 1,
+            labelPadding: const EdgeInsets.symmetric(horizontal: 8.0),
             tabs: const [
               Tab(
-                icon: Icon(Icons.calculate_outlined),
-                child: Text('Aritmética'),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.calculate_outlined),
+                    Text('Aritmética'),
+                  ],
+                ),
               ),
-              Tab(icon: Icon(Icons.checklist_sharp), child: Text('Ponderada')),
               Tab(
-                icon: Icon(Icons.note_alt_outlined),
-                child: Text('Prova Final'),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Icon(Icons.checklist_sharp), Text('Ponderada')],
+                ),
+              ),
+              Tab(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.note_alt_outlined),
+                    Text('Prova Final'),
+                  ],
+                ),
               ),
             ],
           ),
