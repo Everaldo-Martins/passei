@@ -84,7 +84,7 @@ class HomePageState extends State<HomePage>
       ),
       body: TabBarView(
         controller: _tabController,
-        physics: const NeverScrollableScrollPhysics(), // Desabilita swipe
+        physics: const NeverScrollableScrollPhysics(),
         children: const [
           ArithmeticAverageScreen(),
           WeightedAverageScreen(),

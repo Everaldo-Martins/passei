@@ -15,6 +15,11 @@ class CheckFinalScreenState extends State<CheckFinalScreen> {
   final ValueNotifier<bool> hasContent = ValueNotifier<bool>(false);
   final ValueNotifier<bool> allFieldsValid = ValueNotifier<bool>(false);
 
+  bool isFullScreen(BuildContext context) {
+    final padding = MediaQuery.of(context).padding;
+    return padding.bottom == 0;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -137,6 +142,12 @@ class CheckFinalScreenState extends State<CheckFinalScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
+    final mediaQuery = MediaQuery.of(context);
+    final bottomPadding = mediaQuery.padding.bottom;
+    final viewInsetsBottom = mediaQuery.viewInsets.bottom;
+
+    final isAvoidingBottomInset = viewInsetsBottom > 0 || bottomPadding > 0;
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: SizedBox.expand(
@@ -171,7 +182,10 @@ class CheckFinalScreenState extends State<CheckFinalScreen> {
               ),
               const SizedBox(height: 16),
               _buildActionButtons(context, theme),
-              SizedBox(height: 40),
+              SizedBox(
+                height:
+                    isFullScreen(context) && !isAvoidingBottomInset ? 40 : 0,
+              ),
             ],
           ),
         ),

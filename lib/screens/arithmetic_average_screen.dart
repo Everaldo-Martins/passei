@@ -20,6 +20,11 @@ class ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
   final ValueNotifier<bool> isButtonEnabled = ValueNotifier<bool>(false);
   final ValueNotifier<bool> hasContent = ValueNotifier<bool>(false);
 
+  bool isFullScreen(BuildContext context) {
+    final padding = MediaQuery.of(context).padding;
+    return padding.bottom == 0;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -165,6 +170,12 @@ class ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
+    final mediaQuery = MediaQuery.of(context);
+    final bottomPadding = mediaQuery.padding.bottom;
+    final viewInsetsBottom = mediaQuery.viewInsets.bottom;
+
+    final isAvoidingBottomInset = viewInsetsBottom > 0 || bottomPadding > 0;
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: Container(
@@ -301,7 +312,9 @@ class ArithmeticAverageScreenState extends State<ArithmeticAverageScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 40),
+            SizedBox(
+              height: isFullScreen(context) && !isAvoidingBottomInset ? 40 : 0,
+            ),
           ],
         ),
       ),
