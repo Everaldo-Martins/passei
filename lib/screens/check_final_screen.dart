@@ -15,11 +15,6 @@ class CheckFinalScreenState extends State<CheckFinalScreen> {
   final ValueNotifier<bool> hasContent = ValueNotifier<bool>(false);
   final ValueNotifier<bool> allFieldsValid = ValueNotifier<bool>(false);
 
-  bool isFullScreen(BuildContext context) {
-    final padding = MediaQuery.of(context).padding;
-    return padding.bottom == 0;
-  }
-
   @override
   void initState() {
     super.initState();
@@ -141,52 +136,43 @@ class CheckFinalScreenState extends State<CheckFinalScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
-    final mediaQuery = MediaQuery.of(context);
-    final bottomPadding = mediaQuery.padding.bottom;
-    final viewInsetsBottom = mediaQuery.viewInsets.bottom;
-
-    final isAvoidingBottomInset = viewInsetsBottom > 0 || bottomPadding > 0;
-
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      body: SizedBox.expand(
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    const Text(
-                      'Insira a média e a nota da prova final',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+      body: SafeArea(
+        child: SizedBox.expand(
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                Expanded(
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Insira a média e a nota da prova final',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 24),
-                    _buildNumberField(
-                      controller: mediaController,
-                      label: 'Média',
-                      context: context,
-                    ),
-                    const SizedBox(height: 16),
-                    _buildNumberField(
-                      controller: provaFinalController,
-                      label: 'Prova Final',
-                      context: context,
-                    ),
-                  ],
+                      const SizedBox(height: 24),
+                      _buildNumberField(
+                        controller: mediaController,
+                        label: 'Média',
+                        context: context,
+                      ),
+                      const SizedBox(height: 16),
+                      _buildNumberField(
+                        controller: provaFinalController,
+                        label: 'Prova Final',
+                        context: context,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 16),
-              _buildActionButtons(context, theme),
-              SizedBox(
-                height:
-                    isFullScreen(context) && !isAvoidingBottomInset ? 40 : 0,
-              ),
-            ],
+                const SizedBox(height: 16),
+                _buildActionButtons(context, theme),
+              ],
+            ),
           ),
         ),
       ),

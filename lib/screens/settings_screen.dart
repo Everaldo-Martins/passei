@@ -26,42 +26,47 @@ class Settings extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildHeadingTitle('Configurações'),
-            _buildSectionTitle('Temas'),
-            const SizedBox(height: 8),
-            _buildThemeSelector(context),
-            const SizedBox(height: 24),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildHeadingTitle('Configurações'),
+              _buildSectionTitle('Temas'),
+              const SizedBox(height: 8),
+              _buildThemeSelector(context),
+              const SizedBox(height: 24),
 
-            _buildSectionTitle('Sobre o Aplicativo'),
-            const Text(
-              'O Passei! é um aplicativo desenvolvido em Flutter que ajuda estudantes a calcular médias aritméticas, ponderadas ou finais, indicando se o aluno está aprovado, precisa fazer final ou está reprovado.',
-              style: TextStyle(fontSize: 14),
-              textAlign: TextAlign.justify,
-            ),
-            const SizedBox(height: 24),
+              _buildSectionTitle('Sobre o Aplicativo'),
+              const Text(
+                'O Passei! é um aplicativo desenvolvido em Flutter que ajuda estudantes a calcular médias aritméticas, ponderadas ou finais, indicando se o aluno está aprovado, precisa fazer final ou está reprovado.',
+                style: TextStyle(fontSize: 14),
+                textAlign: TextAlign.justify,
+              ),
+              const SizedBox(height: 24),
 
-            _buildSectionTitle('Guia de Uso'),
-            _buildFeatureItem(
-              Icons.add,
-              'Adiciona um novo campo (até 4 campos)',
-            ),
-            _buildFeatureItem(Icons.remove, 'Remove o último campo adicionado'),
-            _buildFeatureItem(Icons.clear_all, 'Limpa todos os campos'),
-            _buildFeatureItem(
-              Icons.check,
-              'Calcula a média (todos campos devem estar preenchidos)',
-            ),
-            const SizedBox(height: 16),
-            _buildSectionTitle('Conecte-se Comigo'),
-            const SizedBox(height: 16),
-            _buildSocialButtons(context),
-            const SizedBox(height: 20),
-          ],
+              _buildSectionTitle('Guia de Uso'),
+              _buildFeatureItem(
+                Icons.add,
+                'Adiciona um novo campo (até 4 campos)',
+              ),
+              _buildFeatureItem(
+                Icons.remove,
+                'Remove o último campo adicionado',
+              ),
+              _buildFeatureItem(Icons.clear_all, 'Limpa todos os campos'),
+              _buildFeatureItem(
+                Icons.check,
+                'Calcula a média (todos campos devem estar preenchidos)',
+              ),
+              const SizedBox(height: 16),
+              _buildSectionTitle('Conecte-se Comigo'),
+              const SizedBox(height: 16),
+              _buildSocialButtons(context),
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );

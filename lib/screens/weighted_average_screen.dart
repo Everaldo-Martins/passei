@@ -23,11 +23,6 @@ class WeightedAverageScreenState extends State<WeightedAverageScreen> {
   final ValueNotifier<bool> isButtonEnabled = ValueNotifier<bool>(false);
   final ValueNotifier<bool> hasContent = ValueNotifier<bool>(false);
 
-  bool isFullScreen(BuildContext context) {
-    final padding = MediaQuery.of(context).padding;
-    return padding.bottom == 0;
-  }
-
   @override
   void initState() {
     super.initState();
@@ -215,187 +210,179 @@ class WeightedAverageScreenState extends State<WeightedAverageScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
-    final mediaQuery = MediaQuery.of(context);
-    final bottomPadding = mediaQuery.padding.bottom;
-    final viewInsetsBottom = mediaQuery.viewInsets.bottom;
-
-    final isAvoidingBottomInset = viewInsetsBottom > 0 || bottomPadding > 0;
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      body: Container(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: notaControllers.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 8,
-                          child: Container(
-                            constraints: const BoxConstraints(maxWidth: 300),
-                            child: TextField(
-                              controller: notaControllers[index],
-                              textInputAction: TextInputAction.next,
-                              maxLines: 1,
-                              keyboardType:
-                                  const TextInputType.numberWithOptions(
-                                    decimal: true,
+      body: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: notaControllers.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 8,
+                            child: Container(
+                              constraints: const BoxConstraints(maxWidth: 300),
+                              child: TextField(
+                                controller: notaControllers[index],
+                                textInputAction: TextInputAction.next,
+                                maxLines: 1,
+                                keyboardType:
+                                    const TextInputType.numberWithOptions(
+                                      decimal: true,
+                                    ),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.allow(
+                                    RegExp(r'^\d*\.?\d{0,2}'),
                                   ),
-                              inputFormatters: [
-                                FilteringTextInputFormatter.allow(
-                                  RegExp(r'^\d*\.?\d{0,2}'),
+                                ],
+                                decoration: const InputDecoration(
+                                  labelText: 'Nota',
                                 ),
-                              ],
-                              decoration: const InputDecoration(
-                                labelText: 'Nota',
                               ),
                             ),
                           ),
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            constraints: const BoxConstraints(maxWidth: 100),
-                            child: TextField(
-                              controller: pesoControllers[index],
-                              textInputAction: TextInputAction.next,
-                              maxLines: 1,
-                              keyboardType:
-                                  const TextInputType.numberWithOptions(
-                                    decimal: true,
+                          const SizedBox(width: 8),
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                              constraints: const BoxConstraints(maxWidth: 100),
+                              child: TextField(
+                                controller: pesoControllers[index],
+                                textInputAction: TextInputAction.next,
+                                maxLines: 1,
+                                keyboardType:
+                                    const TextInputType.numberWithOptions(
+                                      decimal: true,
+                                    ),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.allow(
+                                    RegExp(r'^\d*\.?\d{0,2}'),
                                   ),
-                              inputFormatters: [
-                                FilteringTextInputFormatter.allow(
-                                  RegExp(r'^\d*\.?\d{0,2}'),
+                                ],
+                                decoration: const InputDecoration(
+                                  labelText: 'Peso',
+                                  border: OutlineInputBorder(),
                                 ),
-                              ],
-                              decoration: const InputDecoration(
-                                labelText: 'Peso',
-                                border: OutlineInputBorder(),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
+                        ],
+                      ),
+                    );
+                  },
+                ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Botão Adicionar
-                ElevatedButton(
-                  onPressed: count < 4 ? addNota : null,
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(60, 60),
-                    padding: const EdgeInsets.all(0),
-                    backgroundColor:
-                        count < 4
-                            ? theme.colorScheme.primary
-                            : theme.colorScheme.surfaceContainerHighest,
-                    foregroundColor:
-                        count < 4
-                            ? theme.colorScheme.onPrimary
-                            : theme.colorScheme.onSurface.withValues(
-                              alpha: 0.38,
-                            ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Botão Adicionar
+                  ElevatedButton(
+                    onPressed: count < 4 ? addNota : null,
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(60, 60),
+                      padding: const EdgeInsets.all(0),
+                      backgroundColor:
+                          count < 4
+                              ? theme.colorScheme.primary
+                              : theme.colorScheme.surfaceContainerHighest,
+                      foregroundColor:
+                          count < 4
+                              ? theme.colorScheme.onPrimary
+                              : theme.colorScheme.onSurface.withValues(
+                                alpha: 0.38,
+                              ),
+                    ),
+                    child: const Icon(Icons.add, size: 28),
                   ),
-                  child: const Icon(Icons.add, size: 28),
-                ),
 
-                const SizedBox(width: 16),
+                  const SizedBox(width: 16),
 
-                // Botão Remover
-                ElevatedButton(
-                  onPressed: count > 2 ? removeNota : null,
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(60, 60),
-                    padding: const EdgeInsets.all(0),
-                    backgroundColor:
-                        count > 2
-                            ? theme.colorScheme.primary
-                            : theme.colorScheme.surfaceContainerHighest,
-                    foregroundColor:
-                        count > 2
-                            ? theme.colorScheme.onPrimary
-                            : theme.colorScheme.onSurface.withValues(
-                              alpha: 0.38,
-                            ),
+                  // Botão Remover
+                  ElevatedButton(
+                    onPressed: count > 2 ? removeNota : null,
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(60, 60),
+                      padding: const EdgeInsets.all(0),
+                      backgroundColor:
+                          count > 2
+                              ? theme.colorScheme.primary
+                              : theme.colorScheme.surfaceContainerHighest,
+                      foregroundColor:
+                          count > 2
+                              ? theme.colorScheme.onPrimary
+                              : theme.colorScheme.onSurface.withValues(
+                                alpha: 0.38,
+                              ),
+                    ),
+                    child: const Icon(Icons.remove, size: 28),
                   ),
-                  child: const Icon(Icons.remove, size: 28),
-                ),
 
-                const SizedBox(width: 16),
+                  const SizedBox(width: 16),
 
-                // Botão Limpar
-                ValueListenableBuilder<bool>(
-                  valueListenable: hasContent,
-                  builder: (context, hasContentValue, child) {
-                    return ElevatedButton(
-                      onPressed: hasContentValue ? clearFields : null,
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(60, 60),
-                        padding: EdgeInsets.zero,
-                        backgroundColor:
-                            hasContentValue
-                                ? Theme.of(context).colorScheme.primary
-                                : Theme.of(
-                                  context,
-                                ).colorScheme.surfaceContainerHighest,
-                        foregroundColor:
-                            hasContentValue
-                                ? Theme.of(context).colorScheme.onPrimary
-                                : Theme.of(
-                                  context,
-                                ).colorScheme.onSurface.withValues(alpha: 0.38),
-                      ),
-                      child: const Icon(Icons.clear_all, size: 28),
-                    );
-                  },
-                ),
+                  // Botão Limpar
+                  ValueListenableBuilder<bool>(
+                    valueListenable: hasContent,
+                    builder: (context, hasContentValue, child) {
+                      return ElevatedButton(
+                        onPressed: hasContentValue ? clearFields : null,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(60, 60),
+                          padding: EdgeInsets.zero,
+                          backgroundColor:
+                              hasContentValue
+                                  ? Theme.of(context).colorScheme.primary
+                                  : Theme.of(
+                                    context,
+                                  ).colorScheme.surfaceContainerHighest,
+                          foregroundColor:
+                              hasContentValue
+                                  ? Theme.of(context).colorScheme.onPrimary
+                                  : Theme.of(context).colorScheme.onSurface
+                                      .withValues(alpha: 0.38),
+                        ),
+                        child: const Icon(Icons.clear_all, size: 28),
+                      );
+                    },
+                  ),
 
-                const SizedBox(width: 16),
+                  const SizedBox(width: 16),
 
-                // Botão Calcular
-                ValueListenableBuilder<bool>(
-                  valueListenable: isButtonEnabled,
-                  builder: (context, value, child) {
-                    return ElevatedButton(
-                      onPressed: value ? calculateMediaPonderada : null,
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(60, 60),
-                        padding: const EdgeInsets.all(0),
-                        backgroundColor:
-                            value
-                                ? theme.colorScheme.primary
-                                : theme.colorScheme.surfaceContainerHighest,
-                        foregroundColor:
-                            value
-                                ? theme.colorScheme.onPrimary
-                                : theme.colorScheme.onSurface.withValues(
-                                  alpha: 0.38,
-                                ),
-                      ),
-                      child: const Icon(Icons.check, size: 28),
-                    );
-                  },
-                ),
-              ],
-            ),
-            SizedBox(
-              height: isFullScreen(context) && !isAvoidingBottomInset ? 40 : 0,
-            ),
-          ],
+                  // Botão Calcular
+                  ValueListenableBuilder<bool>(
+                    valueListenable: isButtonEnabled,
+                    builder: (context, value, child) {
+                      return ElevatedButton(
+                        onPressed: value ? calculateMediaPonderada : null,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(60, 60),
+                          padding: const EdgeInsets.all(0),
+                          backgroundColor:
+                              value
+                                  ? theme.colorScheme.primary
+                                  : theme.colorScheme.surfaceContainerHighest,
+                          foregroundColor:
+                              value
+                                  ? theme.colorScheme.onPrimary
+                                  : theme.colorScheme.onSurface.withValues(
+                                    alpha: 0.38,
+                                  ),
+                        ),
+                        child: const Icon(Icons.check, size: 28),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
