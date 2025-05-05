@@ -32,17 +32,17 @@ Olá, este é o aplicativo **Passei**! Desenvolvido inteiramente com Flutter, el
 
 ### Tela Principal
 
-![Tela Principal](screenshots/tela_principal.png)
+![Tela Principal](screenshots/tela.gif)
 ---
 
 ### Modal de Resultado
 
-![Modal de Resultado](screenshots/modal_resultado.png)
+![Modal de Resultado](screenshots/modal.gif)
 ---
 
 ### Ajuda
 
-![ajuda](screenshots/ajuda.png)
+![ajuda](screenshots/ajuda.gif)
 ---
 
 ## ✨ Benefícios
@@ -57,7 +57,7 @@ A estrutura principal do projeto é composta pelos seguintes arquivos:
 
 - `main.dart`: Ponto de entrada do aplicativo.
 - `home_page.dart`: Tela principal que concentra as demais.
-- `about_page.dart`: Tela onde ficam as informações sobre o aplicativo, ajuda de uso e redes sociais do dev.
+- `settings_screen.dart`: Configurações do tema, informações sobre o aplicativo, ajuda de uso e redes sociais do dev.
 - `arithmetic_average_screen.dart`: Tela onde os cálculo de média aritmética são feitos.
 - `weighted_average_screen.dart`: Tela onde os cálculo de média ponderada são feitos.
 - `check_final_screen.dart`: Tela onde os cálculo de prova final é feito.
@@ -67,11 +67,6 @@ A estrutura principal do projeto é composta pelos seguintes arquivos:
 ## 🌟 Contribuições
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests. Veja nosso [Guia de Contribuição](CONTRIBUTING.md) para mais detalhes.
-
-## 📥 Download Apk Android
-
-- [APK Passei](download/app-release.apk)
-- [SHA1 Passei](download/app-release.apk.sha1)
 
 ## 📄 Licença
 
